@@ -7,7 +7,7 @@ _config = namedtuple('_config', 'res_x res_y type count width depth')
 
 _config.res_x = 64          # Resolution in X axis
 _config.res_y = 64          # Resolution in Y axis
-_config.type = "trap"       # Map type (trap or bars)
+_config.type = "bars"       # Map type (trap or bars)
 _config.count = 2           # Number of bars
 _config.width = 32          # Width of trap
 _config.depth = 32          # Depth of trap
@@ -19,7 +19,7 @@ class Example:
         self.output = np.ones([_config.res_x, _config.res_y], dtype=int) * 255
         if _config.type == "bars":
             for i in range(0, _config.count):
-                x = random.randint(int((1-_config.span)*_config.res_x), int(_config.span*_config.res_x))
+                x = random.randint(0, _config.res_x)
                 y = random.randint(int((1-_config.span)*_config.res_y), int(_config.span*_config.res_y))
                 self.output = cv2.line(self.output, (x, y - _config.length/2), (x, y + _config.length/2), (0, 0, 0), thickness=4)
         elif _config.type == "trap":
