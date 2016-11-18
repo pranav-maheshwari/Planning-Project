@@ -1,0 +1,4 @@
+width 30
+height 15
+start 8, 7
+goal 10, 14
