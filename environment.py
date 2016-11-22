@@ -12,7 +12,7 @@ _config.count = 2           # Number of bars
 _config.width = 32          # Width of trap
 _config.depth = 32          # Depth of trap
 _config.length = 24         # Length of bars
-_config.span = 0.6          # Ratio of region occupied by bars or tap
+_config.span = 0.6          # Ratio of region occupied by bars or trap
 
 class Example:
     def __init__(self):
