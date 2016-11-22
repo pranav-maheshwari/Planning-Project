@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 class SquareGrid:
-    def __init__(self, width, height, connectivity = "four_connected"):
+    def __init__(self, width, height, connectivity="four_connected"):
         self.width = width
         self.height = height
         self.connectivity = connectivity
         self.walls = []
 
-    
     def in_bounds(self, id):
         (x, y) = id
         return 0 <= x < self.width and 0 <= y < self.height
@@ -27,7 +26,3 @@ class SquareGrid:
             results = filter(self.in_bounds, results)
             results = filter(self.passable, results)
         return results
-
-
-    
-
