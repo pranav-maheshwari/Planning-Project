@@ -6,7 +6,7 @@ sys.path.insert(0, os.path.abspath('..'))
 
 from data_structures.PriorityQueue import *
 from graphs.GridWithWeights import *
-
+from graphs.HeuristicFunctions import *
 
 def astar_search(graph, start, goal, heuristic):
     frontier = PriorityQueue()
