@@ -14,3 +14,7 @@ def Manhattan(cell, goal):
 def Octile(cell, goal):
     temp = np.abs(np.array(cell) - np.array(goal))
     return max(temp) + 0.414*min(temp)
+
+
+def Feature(cell, weights):
+    return cell[1]*weights[1] + cell[2]*weights[2]
