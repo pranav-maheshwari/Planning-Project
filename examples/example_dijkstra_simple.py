@@ -10,7 +10,7 @@ from planners.Dijkstra import *
 from utils.planner_utils import *
 
 # Read environment definition from file
-start_list, goal_list, width, height, walls = read_env_from_file("../sample_environments/sample_simple.txt")
+start_list, goal_list, width, height, walls = read_env_from_file("../sample_environments/sample_bugtrap.txt")
 print start_list, goal_list, width, height
 # Initialize a graph with four or eight connectivity
 g = GridWithWeights(width, height, "four_connected")
@@ -21,6 +21,7 @@ for i in xrange(width):
         if (i, j) in g.walls:
             continue
         g.weights[(i, j)] = 1;  # Uniform cost graph
+
 
 # Run bfs planner and get parents
 parents, cost_so_far = dijkstra_search(g, start_list[0], goal_list[0])

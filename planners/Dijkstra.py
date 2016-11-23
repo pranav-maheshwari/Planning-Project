@@ -4,6 +4,7 @@ import sys
 from threading import Thread
 import cv2
 import numpy as np
+import time
 
 sys.path.insert(0, os.path.abspath('..'))
 
@@ -14,9 +15,9 @@ img = np.array([0])
 
 
 def display():
-    cv2.namedWindow('AutoPark', cv2.WINDOW_NORMAL)
+    cv2.namedWindow('Planning', cv2.WINDOW_NORMAL)
     while True:
-        cv2.imshow("Planning", img)
+        cv2.imshow('Planning', img)
         cv2.waitKey(30)
 
 t1 = Thread(target=display)
@@ -25,10 +26,10 @@ t1 = Thread(target=display)
 def dijkstra_search(graph, start, goal, visualize=True):
     global img
     if visualize:
-        img = np.ones([graph.width, graph.height])*255
+        img = np.ones([graph.width+100, graph.height+100, 3])*255
         for i in graph.walls:
-            img[i[0], i[1]] = 0
-        img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
+            img[i[0], i[1]] = (0, 0, 0)
+        #img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
         t1.start()
     frontier = PriorityQueue()
     frontier.put(start, 0)
@@ -40,6 +41,7 @@ def dijkstra_search(graph, start, goal, visualize=True):
         current = frontier.get()
         # print(current)
         img[current[0], current[1]] = [255, 0, 0]
+        time.sleep(0.5)
         if current == goal:
             break
         for next in graph.neighbors(current):
