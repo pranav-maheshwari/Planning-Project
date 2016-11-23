@@ -20,7 +20,7 @@ for i in xrange(width):
     for j in xrange(height):
         if (i, j) in g.walls:
             continue
-        g.weights[(i, j)] = 1;  # Uniform cost graph
+        g.weights[(i, j)] = 1  # Uniform cost graph
 
 # Run bfs planner and get parents
 parents, cost_so_far = dijkstra_search(g, start_list[0], goal_list[0])

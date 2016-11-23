@@ -2,8 +2,6 @@
 import os
 import sys
 import cv2
-import cv
-import matplotlib.pylab as plt
 from threading import Thread
 
 sys.path.insert(0, os.path.abspath('..'))
@@ -11,6 +9,7 @@ sys.path.insert(0, os.path.abspath('..'))
 from data_structures.PriorityQueue import *
 from graphs.GridWithWeights import *
 from graphs.HeuristicFunctions import *
+from utils.planner_utils import *
 
 img = np.array([0])
 
@@ -24,7 +23,7 @@ def display():
 t1 = Thread(target=display)
 
 
-def astar_search(graph, start, goal, heuristic, visualize, weight):
+def astar_search(graph, start, goal, heuristic, visualize, weights):
     global img
     if visualize:
         img = np.ones([graph.width, graph.height])*255
@@ -38,20 +37,21 @@ def astar_search(graph, start, goal, heuristic, visualize, weight):
     cost_so_far = {}
     came_from[start] = None
     cost_so_far[start] = 0
+    obs_list = set()
     while not frontier.empty():
         current = frontier.get()
         img[current[0], current[1]] = [255, 0, 0]
         # print(current)
         if current == goal:
             break
-        for next in graph.neighbors(current):
+        successors, obs_list = graph.neighbors(current, obs_list)
+        for next in successors:
             new_cost = cost_so_far[current] + graph.cost(current, next)
             if next not in cost_so_far or new_cost < cost_so_far[next]:
                 cost_so_far[next] = new_cost
-                priority = new_cost + heuristic(next, goal)
+                priority = new_cost + weights[0]*heuristic(next, goal) + weights[3]*(1.0/((graph.width+graph.height)/2.0 + GetNearestObstacle(obs_list, next))) + Feature(next, weights)
                 frontier.put(next, priority)
                 came_from[next] = current
-
     return came_from, cost_so_far
 
 

@@ -13,16 +13,17 @@ class SquareGrid:
     def passable(self, id):
         return id not in self.walls
     
-    def neighbors(self, id):
+    def neighbors(self, id, cobs):
         (x, y) = id
         if self.connectivity == "four_connected":
-            results = [(x+1, y), (x, y-1), (x-1, y), (x, y+1)]
-            if (x + y) % 2 == 0: results.reverse() # aesthetics
-            results = filter(self.in_bounds, results)
+            temp = [(x+1, y), (x, y-1), (x-1, y), (x, y+1)]
+            if (x + y) % 2 == 0: temp.reverse() # aesthetics
+            results = filter(self.in_bounds, temp)
             results = filter(self.passable, results)
         elif self.connectivity == "eight_connected":
-            results = [(x+1, y), (x+1, y-1), (x, y-1), (x-1, y-1), (x-1, y), (x-1, y+1), (x, y+1), (x+1, y+1)]
-            if (x + y) % 2 == 0: results.reverse() # aesthetics
-            results = filter(self.in_bounds, results)
+            temp = [(x+1, y), (x+1, y-1), (x, y-1), (x-1, y-1), (x-1, y), (x-1, y+1), (x, y+1), (x+1, y+1)]
+            if (x + y) % 2 == 0: temp.reverse() # aesthetics
+            results = filter(self.in_bounds, temp)
             results = filter(self.passable, results)
-        return results
+        cobs.union(set(temp) - set(results))
+        return results, cobs
