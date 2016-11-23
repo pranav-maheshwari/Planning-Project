@@ -50,7 +50,11 @@ def astar_search(graph, start, goal, heuristic, visualize, weights):
             new_cost = cost_so_far[current] + graph.cost(current, next)
             if next not in cost_so_far or new_cost < cost_so_far[next]:
                 cost_so_far[next] = new_cost
-                priority = new_cost + weights[0]*heuristic(next, goal) + weights[3]*(1.0/((graph.width+graph.height)/2.0 + GetNearestObstacle(obs_list, next))) + Feature(next, weights)
+                if len(obs_list) == 0:
+                    fobs = 0
+                else:
+                    fobs = weights[3]*(1.0/((graph.width+graph.height)/2.0 + GetNearestObstacle(obs_list, next)))
+                priority = new_cost + weights[0]*heuristic(next, goal) + fobs + Feature(next, weights)
                 frontier.put(next, priority)
                 came_from[next] = current
     return came_from, cost_so_far
@@ -62,7 +66,7 @@ def astar_search_multistart(graph, start_list, goal, heuristic, weight):
     came_from = {}
     cost_so_far = {}
     for start in start_list:
-        frontier.put(start, 0)
+        frontier.put((start, 0, 0), 0)
         came_from[start] = None
         cost_so_far[start] = 0
 
@@ -77,7 +81,7 @@ def astar_search_multistart(graph, start_list, goal, heuristic, weight):
             if next not in cost_so_far or new_cost < cost_so_far[next]:
                 cost_so_far[next] = new_cost
                 priority = new_cost + heuristic(next, goal)
-                frontier.put(next, priority)
+                frontier.put((next, new_cost, current[0][2] + 1), priority)
                 came_from[next] = current
 
     return came_from, cost_so_far

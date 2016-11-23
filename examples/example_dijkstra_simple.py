@@ -4,7 +4,6 @@ import sys
 sys.path.insert(0, os.path.abspath('..'))
 
 
-
 from utils.io import *
 from graphs.GridWithWeights import GridWithWeights
 from planners.Dijkstra import *
