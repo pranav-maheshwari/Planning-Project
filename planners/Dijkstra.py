@@ -1,14 +1,35 @@
 #!/usr/bin/env python
 import os
 import sys
+from threading import Thread
+import cv2
+import numpy as np
 
 sys.path.insert(0, os.path.abspath('..'))
 
 from data_structures.PriorityQueue import *
 from graphs.GridWithWeights import *
 
+img = np.array([0])
 
-def dijkstra_search(graph, start, goal):
+
+def display():
+    cv2.namedWindow('AutoPark', cv2.WINDOW_NORMAL)
+    while True:
+        cv2.imshow("Planning", img)
+        cv2.waitKey(30)
+
+t1 = Thread(target=display)
+
+
+def dijkstra_search(graph, start, goal, visualize=True):
+    global img
+    if visualize:
+        img = np.ones([graph.width, graph.height])*255
+        for i in graph.walls:
+            img[i[0], i[1]] = 0
+        img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
+        t1.start()
     frontier = PriorityQueue()
     frontier.put(start, 0)
     came_from = {}
@@ -18,6 +39,7 @@ def dijkstra_search(graph, start, goal):
     while not frontier.empty():
         current = frontier.get()
         # print(current)
+        img[current[0], current[1]] = [255, 0, 0]
         if current == goal:
             break
         for next in graph.neighbors(current):

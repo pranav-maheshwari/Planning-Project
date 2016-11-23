@@ -2,6 +2,7 @@
 
 import numpy as np
 
+
 def Euclidean(cell, goal):
     return np.linalg.norm(np.array(cell) - np.array(goal))
 
