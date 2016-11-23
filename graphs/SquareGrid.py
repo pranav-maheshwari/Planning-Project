@@ -13,7 +13,7 @@ class SquareGrid:
     def passable(self, id):
         return id not in self.walls
     
-    def neighbors(self, id, cobs):
+    def neighbors(self, id, cobs = set()):
         (x, y) = id
         if self.connectivity == "four_connected":
             temp = [(x+1, y), (x, y-1), (x-1, y), (x, y+1)]

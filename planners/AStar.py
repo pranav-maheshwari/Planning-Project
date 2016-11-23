@@ -3,7 +3,7 @@ import os
 import sys
 import cv2
 from threading import Thread
-
+import time
 sys.path.insert(0, os.path.abspath('..'))
 
 from data_structures.PriorityQueue import *
@@ -42,6 +42,7 @@ def astar_search(graph, start, goal, heuristic, visualize, weights):
         current = frontier.get()
         img[current[0], current[1]] = [255, 0, 0]
         # print(current)
+        time.sleep(0)
         if current == goal:
             break
         successors, obs_list = graph.neighbors(current, obs_list)

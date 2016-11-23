@@ -41,10 +41,11 @@ def dijkstra_search(graph, start, goal, visualize=True):
         current = frontier.get()
         # print(current)
         img[current[0], current[1]] = [255, 0, 0]
-        time.sleep(0.5)
+        time.sleep(0.05)
         if current == goal:
             break
-        for next in graph.neighbors(current):
+        successors, _ = graph.neighbors(current)
+        for next in successors:
             new_cost = cost_so_far[current] + graph.cost(current, next)
             if next not in cost_so_far or new_cost < cost_so_far[next]:
                 cost_so_far[next] = new_cost
