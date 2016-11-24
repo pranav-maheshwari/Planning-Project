@@ -17,4 +17,5 @@ def Octile(cell, goal):
 
 
 def Feature(cell, weights):
-    return cell[1]*weights[1] + cell[2]*weights[2]
+	print cell
+	return cell[1]*weights[1] + cell[2]*weights[2]

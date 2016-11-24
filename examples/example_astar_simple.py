@@ -14,7 +14,7 @@ from planners.AStar import *
 start_list, goal_list, width, height, walls = read_env_from_file("../sample_environments/sample_bugtrap.txt")
 print start_list, goal_list, width, height
 # Initialize a graph with four or eight connectivity
-g = GridWithWeights(width, height, "eight_connected")
+g = GridWithWeights(width, height, "four_connected")
 g.walls = walls
 # Set the weights using for loop
 for i in xrange(width):
@@ -23,15 +23,15 @@ for i in xrange(width):
             continue
         g.weights[(i, j)] = 1  # Uniform cost graph
 
-weights = [1, 0, 0, 0]
+weights = [0.1, 0, 0, 40]
 
-# w[0] = usual heuristic
+# w[0] = distance to goal estimate
 # w[1] = g-value
 # w[2] = depth
 # w[3] = nearest obstacle
 
 # Run bfs planner and get parents
-parents, cost_so_far = astar_search(g, start_list[0], goal_list[0], Euclidean, True, )
+parents, cost_so_far = astar_search(g, start_list[0], goal_list[0], Euclidean, True, weights)
 print(parents[goal_list[0]])
 path = reconstruct_path(parents, start_list[0], goal_list[0])
 print("output Path")
