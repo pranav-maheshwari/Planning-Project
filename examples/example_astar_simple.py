@@ -23,19 +23,17 @@ for i in xrange(width):
             continue
         g.weights[(i, j)] = 1  # Uniform cost graph
 
-weights = [0.1, 0, 0, 40]
+weights = np.array([0, 20, 0, 400])
 
-# w[0] = distance to goal estimate
-# w[1] = g-value
+# w[0] = g-value
+# w[1] = distance-to-goal estimate
 # w[2] = depth
 # w[3] = nearest obstacle
 
-# Run bfs planner and get parents
+# Run astar planner and get parents
 parents, cost_so_far = astar_search(g, start_list[0], goal_list[0], Euclidean, True, weights)
 print(parents[goal_list[0]])
-path = reconstruct_path(parents, start_list[0], goal_list[0])
+path = reconstruct_path(parents, start_list[0], goal_list[0], cost_so_far)
 print("output Path")
 print(path)
-# Print output
-# print parents
 # [TODO: Add code for visualization]

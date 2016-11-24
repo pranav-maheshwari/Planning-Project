@@ -18,11 +18,13 @@ class SquareGrid:
         if self.connectivity == "four_connected":
             temp = [(x+1, y), (x, y-1), (x-1, y), (x, y+1)]
             if (x + y) % 2 == 0: temp.reverse() # aesthetics
-            results = filter(self.in_bounds, temp)
-            results = filter(self.passable, results)
+            results = filter(self.passable, temp)
+            obs_neighbors = set(temp) - set(results)
+            results = filter(self.in_bounds, list(results))
         elif self.connectivity == "eight_connected":
             temp = [(x+1, y), (x+1, y-1), (x, y-1), (x-1, y-1), (x-1, y), (x-1, y+1), (x, y+1), (x+1, y+1)]
             if (x + y) % 2 == 0: temp.reverse() # aesthetics
-            results = filter(self.in_bounds, temp)
-            results = filter(self.passable, results)
-        return results, set(temp) - set(results)
+            results = filter(self.passable, temp)
+            obs_neighbors = set(temp) - set(results)
+            results = filter(self.in_bounds, list(results))
+        return results, obs_neighbors
