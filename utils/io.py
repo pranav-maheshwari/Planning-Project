@@ -31,8 +31,8 @@ def read_env_from_file(file_name):
 				goals_list.append((int(coords[i]), int(coords[i+1])))
 			continue
 		else:
-			for i in xrange(int(coords[0]), int(coords[2])):
-				for j in xrange(int(coords[1]), int(coords[3])):
+			for i in xrange(int(coords[0]), int(coords[2])+1):
+				for j in xrange(int(coords[1]), int(coords[3])+1):
 					walls.append((i, j))
 	return start_list, goals_list, width, height, walls
 
