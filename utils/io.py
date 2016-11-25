@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+import os
+import sys
+sys.path.insert(0, os.path.abspath('..'))
+from graphs.GridWithWeights import *
 import re
 
 def read_env_from_file(file_name):
@@ -32,3 +36,14 @@ def read_env_from_file(file_name):
 					walls.append((i, j))
 	return start_list, goals_list, width, height, walls
 
+
+def env_to_graph(start_list, goals_list, width, height, walls):
+	g = GridWithWeights(width, height, "four_connected")
+	g.walls = walls
+	# Set the weights using for loop
+	for i in xrange(width):
+	    for j in xrange(height):
+	        if (i, j) in g.walls:
+	            continue
+	        g.weights[(i, j)] = 1  # Uniform cost graph
+	return g
