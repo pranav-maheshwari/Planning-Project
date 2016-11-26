@@ -20,7 +20,7 @@ class Learner:
 		self.learning_rate = learning_rate
 		self.episode_length = episode_length
 		self.batch_size = batch_size
-		self.weights_buffer = [(1,0,0,0)]
+		self.weights_buffer = [(0,0,0,1)]
 		self.env_database = env_database
 		self.base_heuristic = base_heuristic
 		np.random.seed(seed)
@@ -34,7 +34,6 @@ class Learner:
 
 	def sampleFromDatabase(self):
 		idx = np.random.randint(0, len(self.env_database))
-		print(idx)
 		return self.env_database[idx]
 	
 	def sampleMixture(self):
@@ -47,11 +46,15 @@ class Learner:
 		start_list = planning_prob[1]
 		goals_list = planning_prob[2]
 		t = 0
-		s = SearchAgent(graph, start_list, goals_list, self.base_heuristic, w_mix, visualize)
+		s = SearchAgent(graph, start_list, goals_list, self.base_heuristic, visualize)
+		curr_weights = w_mix
 		while t < self.episode_length:
-			print t
+			done, parent, child, feature_vec = s.step(curr_weights, self.base_heuristic)
+			if done:
+				print("Episode Finished")
+				break
+			# print(t)
 			t += 1
-
 		return tuple(w_mix)
 
 

@@ -34,3 +34,20 @@ def getNodeFeatures(next, goal, heuristic, new_cost, obs_so_far, new_depth):
         f_obs = 1.0/(0.0001 + getNearestObstacle(obs_so_far, next))
     return np.array([f_cost, f_h, f_depth, f_obs])
 
+def getEdgeFeatures(parent, child, goal_list, dist_to_goal_fn, cost_so_far, c_obs, tree_depths):
+    f_cost = cost_so_far[parent]
+    f_h = 0
+    for goal in goal_list: #This will work for multiple goals as well
+        f_h += dist_to_goal_fn(parent, goal)
+    f_depth = tree_depths[parent]
+    # f_length = dist_to_goal_fn(parent, child)
+    if len(c_obs) == 0:
+        f_obs = 0
+    else:
+        f_obs = 1.0/(0.0001 + getNearestObstacle(c_obs, parent))
+    feature_vec = np.array([f_cost, f_h, f_depth, f_obs])
+    print(f_cost, f_h, f_depth, f_obs)
+    # print(feature_vec)
+    return feature_vec#, f_length])
+
+

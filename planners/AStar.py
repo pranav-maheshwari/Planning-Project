@@ -52,7 +52,7 @@ def astar_search(graph, start, goal, heuristic, visualize, weights):
             obs_so_far.add(obs_neighbor) 
         for next in neighbors:
             #Add any obstacles seen to obs_so_far
-            new_cost = cost_so_far[current] + graph.cost(current[0], next)
+            new_cost = cost_so_far[current] + graph.cost(current, next)
             new_depth = depth_so_far[current] + 1
             if next not in cost_so_far or new_cost < cost_so_far[next]:
                 cost_so_far[next] = new_cost
