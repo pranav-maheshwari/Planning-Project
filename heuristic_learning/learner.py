@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 import os
 import sys
+import cv2
+from threading import Thread
 sys.path.insert(0, os.path.abspath('..'))
 
 import numpy as np
@@ -23,7 +25,8 @@ class Learner:
 				 base_heuristic ,\
 				 lambda_factor ,\
 				 num_features ,\
-				 include_terminal):
+				 include_terminal,\
+				 visualize):
 		self.total_episodes = total_episodes
 		self.learning_rate = learning_rate
 		self.episode_length = episode_length
@@ -35,6 +38,11 @@ class Learner:
 		self.lambda_factor = lambda_factor
 		self.num_features = num_features
 		self.include_terminal = include_terminal
+		#Visualization related
+		self.visualize = visualize
+		self.img = np.array([0])
+		self.t1 = Thread(target = self.display)
+
 		np.random.seed(seed)
 		#Save episode data for training
 		self.parent_database = []
@@ -45,8 +53,8 @@ class Learner:
 		
 		#Tensorflow stuff
 		tf.set_random_seed(seed)
-		rng = np.random
-		self.sess = tf.Session()
+		# rng = np.random
+		# self.sess = tf.Session()
 		#Data preprocessing (Standardizing the data)
 		data_prep = DataPreprocessing()
 		data_prep.add_featurewise_zero_center()
@@ -56,10 +64,9 @@ class Learner:
 		# self.Y = tf.placeholder("float", [None])
 		self.input_ = tflearn.input_data(shape = [None, self.num_features],\
 									data_preprocessing = data_prep)
-		print self.input_
 		# self.linear = tflearn.single_unit(self.input_)
 		# print self.linear
-		self.linear = tflearn.fully_connected(self.input_, 1)
+		self.linear = tflearn.fully_connected(self.input_, 1, bias = False)
 		self.regression = tflearn.regression(self.linear,\
 							optimizer = 'sgd',\
 							loss = 'mean_square',\
@@ -78,11 +85,27 @@ class Learner:
 		# self.pred = tf.add(tf.mul(self.input_,self.W), self.b)
 		# print self.pred
 		# #Mean squared error
+		if visualize:
+			self.t1.start()
+
 
 	def learn(self, visualize=True):
 		curr_episode = 0
 		while curr_episode < self.total_episodes: 
 			planning_prob = self.sampleFromDatabase()
+			graph = planning_prob[0]
+			start_list = planning_prob[1]
+			goal_list = planning_prob[2]
+			#Initialize visualization
+			if self.visualize:
+				self.img = np.ones([graph.width, graph.height, 3])*255
+				for start in start_list:
+					self.img[start[0], start[1]] = (0,255,0)
+				for goal in goal_list:
+					self.img[goal[0], goal[1]] = (0,0,255)
+				for i in graph.walls:
+					self.img[i[0], i[1]] = (0, 0, 0)
+
 			w_mix = self.sampleMixture()
 			w = self.learningBestFirstSearch(w_mix, planning_prob, visualize)
 			self.weights_buffer.append(w)
@@ -118,6 +141,7 @@ class Learner:
 		print("Start New Episode")
 		while t < self.episode_length:
 			done, parent, child, feature_vec, best_cost, e_dot = s.step(curr_weights, self.base_heuristic) 
+			self.img[parent[0], parent[1]] = [255, 0, 0]
 			if child is None or feature_vec is None:
 				# print(parent, child, feature_vec, e_dot)
 				continue;
@@ -128,7 +152,7 @@ class Learner:
 					self.child_database.append(child)
 					self.feature_database.append(feature_vec.tolist())
 					self.best_cost_database.append(best_cost)
-					self.e_dot_database.append([e_dot])
+					self.e_dot_database.append(e_dot)
 				print("Episode Finished")
 				break
 			else:
@@ -136,17 +160,30 @@ class Learner:
 				self.child_database.append(child)
 				self.feature_database.append(feature_vec.tolist())
 				self.best_cost_database.append(best_cost)
-				self.e_dot_database.append([e_dot]) #tflearn wants this		
+				self.e_dot_database.append(e_dot) #tflearn wants this		
+		
 		print("Initiate learning")
-		print(np.asarray(self.feature_database).shape)
+		print(np.asarray(self.feature_database).shape[0])
 		print(np.asarray(self.e_dot_database).shape)
-		self.m.fit(np.asarray(self.feature_database), np.asarray(self.e_dot_database), n_epoch = self.num_epochs, show_metric=True, snapshot_epoch=False)
+		e_dot_database_array = np.asarray(self.e_dot_database).reshape(len(self.e_dot_database), 1)
+		self.m.fit(np.asarray(self.feature_database), e_dot_database_array, n_epoch = self.num_epochs, show_metric=True, batch_size = np.asarray(self.feature_database).shape[0], snapshot_epoch=False)
 		# print("Normalized inputs were", self.input_.get)
 		print("\nRegression result:")
 		print("Y = " + str(self.m.get_weights(self.linear.W)) +
-				"*X + " + str(self.m.get_weights(self.linear.b)))
+				"*X") #+ str(self.m.get_weights(self.linear.b)))
 		w_learnt = self.m.get_weights(self.linear.W)
+		tf.to_float(w_learnt)
+		print w_learnt
 		return tuple(w_learnt)
+
+
+	def display(self):
+		cv2.namedWindow('Planning', cv2.WINDOW_NORMAL)
+		while True:
+			cv2.imshow('Planning', self.img)
+			cv2.waitKey(30)
+
+
 
 
 

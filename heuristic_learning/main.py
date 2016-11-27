@@ -16,7 +16,7 @@ seed = 1234
 base_heuristic = Euclidean 
 lambda_factor = 0.1
 num_features = 4
-num_epochs = 10
+num_epochs = 1
 include_terminal = True
 env_database = getEnvironmentDatabase()
 
@@ -30,6 +30,7 @@ l = Learner(total_episodes,\
 			 base_heuristic,\
 			 lambda_factor,\
 			 num_features,\
-			 include_terminal)
+			 include_terminal,\
+			 True)
 l.learn()
 

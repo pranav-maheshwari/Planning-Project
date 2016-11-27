@@ -26,23 +26,15 @@ class SearchAgent(object):
 		self.cost_so_far = {}
 		self.depth_so_far = {}
 		self.obs_so_far = set()
-		self.img = np.array([0])
-		self.t1 = Thread(target = self.display)
+		
+		
 		self.num_expansions = 0
 		for start in self.start_list:
 			self.frontier.put(start,0)
 			self.came_from[start] = None
 			self.cost_so_far[start] = 0
 			self.depth_so_far[start] = 0
-		if visualize:
-			self.img = np.ones([graph.width, graph.height, 3])*255
-			for start in self.start_list:
-				self.img[start[0], start[1]] = (0,255,0)
-			for goal in self.goal_list:
-				self.img[goal[0], goal[1]] = (0,0,255)
-			for i in self.graph.walls:
-				self.img[i[0], i[1]] = (0, 0, 0)
-			self.t1.start()
+
 		# print(self.start_list, self.goal_list, self.graph.walls)
 	
 	# def setWeights(self, w):
@@ -57,7 +49,7 @@ class SearchAgent(object):
 		else:
 			current = self.frontier.get()
 			# print current
-			self.img[current[0], current[1]] = [255, 0, 0]
+			
 			# print(current)
 			if current in self.goal_list:
 				done = True
@@ -96,7 +88,7 @@ class SearchAgent(object):
 					priority = SearchAgent.getHcap(next, feature_vec, weights, self.base_heuristic, self.goal_list)
 					self.frontier.put(next, priority)
 					self.came_from[next] = current
-			time.sleep(0.5)
+			time.sleep(0)
 			# print("Best Feature", best_feature_vec)
 			if best_neighbor:
 				return done, current, best_neighbor, best_feature_vec, best_cost, best_e_dot
@@ -133,13 +125,6 @@ class SearchAgent(object):
 	def getCPlusH(cost, next, feature_vec, weights, base_heuristic, goal_list):
 		#From Equation: h(s) <= c(s,s') + h(s')
 		return cost + SearchAgent.getHcap(next, feature_vec, weights, base_heuristic, goal_list)
-
-	def display(self):
-		cv2.namedWindow('Planning', cv2.WINDOW_NORMAL)
-		while True:
-			cv2.imshow('Planning', self.img)
-			cv2.waitKey(30)
-
 
 
 
