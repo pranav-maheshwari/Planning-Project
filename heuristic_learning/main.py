@@ -8,14 +8,14 @@ from environment_database import *
 from learner import Learner
 from graphs.HeuristicFunctions import *
 #Set the learning parameters
-total_episodes = 5
+total_episodes = 1
 learning_rate = 0.001
 episode_length = 500
 batch_size = 32
 seed = 1234
 base_heuristic = Euclidean 
 lambda_factor = 0.1
-num_features = 4
+num_features = 1
 num_epochs = 1
 include_terminal = True
 env_database = getEnvironmentDatabase()

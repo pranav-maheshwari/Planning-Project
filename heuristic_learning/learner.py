@@ -12,6 +12,7 @@ import tflearn
 from tflearn.data_preprocessing import DataPreprocessing
 from search_agent import SearchAgent
 from utils.planner_utils import *
+from sklearn import linear_model
 print("Import done")
 class Learner:
 	def __init__(self ,\
@@ -32,7 +33,7 @@ class Learner:
 		self.episode_length = episode_length
 		self.batch_size = batch_size
 		self.num_epochs = num_epochs
-		self.weights_buffer = [(0,0,0,0)]
+		self.weights_buffer = [(0)]
 		self.env_database = env_database
 		self.base_heuristic = base_heuristic
 		self.lambda_factor = lambda_factor
@@ -72,19 +73,7 @@ class Learner:
 							loss = 'mean_square',\
 							learning_rate = self.learning_rate,\
 							batch_size = self.batch_size)
-		print(self.regression)
 		self.m = tflearn.DNN(self.regression)
-		print(self.m)
-		#Set the model weights
-		# self.W = tf.Variable(tf.random_normal([self.num_features, 1]))
-		# self.b = tf.Variable(tf.random_normal([1]))
-		# print(self.W)
-		# print(self.b)
-		# # #Add ZCA Whitening to input data
-		# # #Construct the linear model
-		# self.pred = tf.add(tf.mul(self.input_,self.W), self.b)
-		# print self.pred
-		# #Mean squared error
 		if visualize:
 			self.t1.start()
 
@@ -106,9 +95,10 @@ class Learner:
 				for i in graph.walls:
 					self.img[i[0], i[1]] = (0, 0, 0)
 
-			w_mix = self.sampleMixture()
+			# w_mix = self.sampleMixture()
+			w_mix = self.weights_buffer[-1]
 			w = self.learningBestFirstSearch(w_mix, planning_prob, visualize)
-			self.weights_buffer.append(w)
+			# self.weights_buffer.append(w)
 			curr_episode += 1
 		print self.weights_buffer
 
@@ -126,6 +116,7 @@ class Learner:
 			return np.asarray(self.weights_buffer[idx])
 
 	def learningBestFirstSearch(self, w_mix, planning_prob, visualize=True):
+		print("w_mix", w_mix)
 		graph = planning_prob[0]
 		start_list = planning_prob[1]
 		goals_list = planning_prob[2]
@@ -145,6 +136,8 @@ class Learner:
 			if child is None or feature_vec is None:
 				# print(parent, child, feature_vec, e_dot)
 				continue;
+			print "parent", parent, "child", child, "feature_vec", feature_vec, "cost", best_cost, "hp", self.base_heuristic(parent, goals_list[0]), "hc", self.base_heuristic(child, goals_list[0]), "edot", e_dot
+
 			t += 1
 			if done:
 				if self.include_terminal:
@@ -160,21 +153,26 @@ class Learner:
 				self.child_database.append(child)
 				self.feature_database.append(feature_vec.tolist())
 				self.best_cost_database.append(best_cost)
-				self.e_dot_database.append(e_dot) #tflearn wants this		
+				self.e_dot_database.append(e_dot) #tflearn wants this	
+
 		
 		print("Initiate learning")
-		print(np.asarray(self.feature_database).shape[0])
-		print(np.asarray(self.e_dot_database).shape)
+		# print(np.asarray(self.feature_database).shape[0])
+		# print(np.asarray(self.e_dot_database).shape)
+		# print(np.asarray(self.feature_database).shape[0])
 		e_dot_database_array = np.asarray(self.e_dot_database).reshape(len(self.e_dot_database), 1)
-		self.m.fit(np.asarray(self.feature_database), e_dot_database_array, n_epoch = self.num_epochs, show_metric=True, batch_size = np.asarray(self.feature_database).shape[0], snapshot_epoch=False)
+		# self.m.fit(np.asarray(self.feature_database), e_dot_database_array, n_epoch = self.num_epochs, show_metric=True, batch_size = np.asarray(self.feature_database).shape[0], snapshot_epoch=False)
 		# print("Normalized inputs were", self.input_.get)
-		print("\nRegression result:")
-		print("Y = " + str(self.m.get_weights(self.linear.W)) +
-				"*X") #+ str(self.m.get_weights(self.linear.b)))
-		w_learnt = self.m.get_weights(self.linear.W)
-		tf.to_float(w_learnt)
-		print w_learnt
-		return tuple(w_learnt)
+		# print("\nRegression result:")
+		# print("Y = " + str(self.m.get_weights(self.linear.W)) +
+		# 		"*X") #+ str(self.m.get_weights(self.linear.b)))
+		# w_learnt = self.m.get_weights(self.linear.W)
+		# tf.to_float(w_learnt)
+		# print w_learnt
+		regr = linear_model.Ridge(alpha = 0.5, normalize=True)
+		regr.fit(np.asarray(self.feature_database), e_dot_database_array)
+		print regr.coef_
+		return tuple(regr.coef_[0])
 
 
 	def display(self):
