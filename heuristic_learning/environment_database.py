@@ -6,7 +6,7 @@ sys.path.insert(0, os.path.abspath('..'))
 import numpy as np
 from utils.io import *
 
-NUM_BUGTRAP = 2
+NUM_BUGTRAP = 101
 def getEnvironmentDatabase():
 	graphs = []
 	for i in xrange(NUM_BUGTRAP):
