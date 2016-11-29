@@ -11,7 +11,7 @@ from utils.planner_utils import *
 from planners.AStar import *
 
 # Read environment definition from file
-start_list, goal_list, width, height, walls = read_env_from_file("../sample_environments/1trap.txt")
+start_list, goal_list, width, height, walls = read_env_from_file("../sample_environments/trap/1.txt")
 print start_list, goal_list, width, height
 # Initialize a graph with four or eight connectivity
 g = GridWithWeights(width, height, "four_connected")

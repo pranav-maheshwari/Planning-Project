@@ -39,7 +39,6 @@ class Example:
             elif _config.type == "trap":
                 depth = max(2*_config.thickness, int(random.random()*_config.depth))
                 width = max(2*_config.thickness, int(random.random()*_config.width))
-                print _config.boundaries_x[0], _config.boundaries_x[1] - depth - 2*_config.thickness
                 top_left_x = random.randint(_config.boundaries_x[0], _config.boundaries_x[1] - depth - 2*_config.thickness)
                 top_left_y = random.randint(0, _config.res_y - 2*_config.thickness - width)
                 walls = [[top_left_x, top_left_y, top_left_x + depth + _config.thickness, top_left_y + _config.thickness], [top_left_x + depth, top_left_y + _config.thickness, top_left_x + depth + _config.thickness, top_left_y + width + _config.thickness], [top_left_x, top_left_y + width + _config.thickness, top_left_x + depth + _config.thickness, top_left_y + width + 2*_config.thickness], [top_left_x, top_left_y + _config.thickness, top_left_x + _config.thickness, top_left_y + width + _config.thickness]]
