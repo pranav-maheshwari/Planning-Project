@@ -25,6 +25,10 @@ t1 = Thread(target=display)
 
 def astar_search(graph, start, goal, heuristic, visualize, weights):
     global img
+    init = True
+    FEATURE = []
+    MAX_FEATURE = [0, 0, 0, 0]
+    MIN_FEATURE = [0, 0, 0, 0]
     if visualize:
         img = np.ones([graph.width, graph.height, 3])*255
         for i in graph.walls:
@@ -40,6 +44,7 @@ def astar_search(graph, start, goal, heuristic, visualize, weights):
     came_from[start] = None
     cost_so_far[start] = 0
     depth_so_far[start] = 0
+    FEATURE.append(getNodeFeatures(start, goal, heuristic, 0, obs_so_far, 0))
     while not frontier.empty():
         current = frontier.get()
         img[current[0], current[1]] = [255, 0, 0]
@@ -58,9 +63,24 @@ def astar_search(graph, start, goal, heuristic, visualize, weights):
                 cost_so_far[next] = new_cost
                 depth_so_far[next] = new_depth
                 feature_array = getNodeFeatures(next, goal, heuristic, new_cost, obs_so_far, new_depth)
+                FEATURE.append(feature_array)
+                if init:
+                    temp = zip(*FEATURE)
+                    for i in range(4):
+                        MAX_FEATURE[i] = max(temp[i])
+                        MIN_FEATURE[i] = min(temp[i])
+                else:
+                    for i in range(4):
+                        if feature_array[i] > MAX_FEATURE[i]:
+                            MAX_FEATURE[i] = feature_array[i]
+                        elif feature_array[i] < MIN_FEATURE[i]:
+                            MIN_FEATURE[i] = feature_array[i]
+                feature_array = normalize(feature_array, MAX_FEATURE, MIN_FEATURE)
+                print "***************************FEATURE**********************", feature_array
                 priority = new_cost + np.dot(weights, feature_array)
                 frontier.put(next, priority)
                 came_from[next] = current
+        init = False
         time.sleep(0.1)
     return came_from, cost_so_far
 
