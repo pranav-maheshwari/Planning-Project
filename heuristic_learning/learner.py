@@ -40,7 +40,7 @@ class Learner:
         self.episode_length = episode_length
         self.batch_size = batch_size
         self.num_epochs = num_epochs
-        self.weights_buffer = [(0)]
+        self.weights_buffer = [(0, 0)]
         self.env_database = env_database
         self.base_heuristic = base_heuristic
         self.lambda_factor = lambda_factor

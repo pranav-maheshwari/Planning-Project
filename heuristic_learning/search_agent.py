@@ -24,8 +24,8 @@ class SearchAgent(object):
         # self.w_curr = w_curr
         self.init = True
         self.FEATURE = []
-        self.MAX_FEATURE = np.array([0.0])
-        self.MIN_FEATURE = np.array([0.0])
+        self.MAX_FEATURE = np.array([0.0, 0.0])
+        self.MIN_FEATURE = np.array([0.0, 0.0])
         self.visualize = visualize
         self.frontier = PriorityQueue()
         self.came_from = {}
@@ -73,7 +73,7 @@ class SearchAgent(object):
                         self.MIN_FEATURE[i] = min(temp[i])
                     self.init = False
                 else:
-                    for i in range(1):
+                    for i in range(2):
                         if goal_feature_vec[i] > self.MAX_FEATURE[i]:
                             self.MAX_FEATURE[i] = goal_feature_vec[i]
                         elif goal_feature_vec[i] < self.MIN_FEATURE[i]:
@@ -99,7 +99,7 @@ class SearchAgent(object):
 
                 if self.init:
                     temp = zip(*self.FEATURE)
-                    for i in range(1):
+                    for i in range(2):
                         self.MAX_FEATURE[i] = max(temp[i]) + 0.001
                         self.MIN_FEATURE[i] = min(temp[i])
                     self.init = False
@@ -165,7 +165,7 @@ class SearchAgent(object):
         h_base = 0
         for goal in goal_list:  # This will work for multiple goals as well
             h_base += base_heuristic(node, goal)
-        e_cap_dot = SearchAgent.getEcapDot(feature_vec, weights)
+        e_cap_dot = SearchAgent.getEcapDot(feature_vec, np.array(weights))
         h_cap = h_base * (1 - e_cap_dot)
         return h_cap
 

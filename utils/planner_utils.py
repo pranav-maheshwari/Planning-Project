@@ -56,7 +56,7 @@ def getEdgeFeatures(parent, child, goal_list, dist_to_goal_fn, cost_so_far, c_ob
     else:
         # f_obs = getNearestObstacle(c_obs, parent)
         f_obs = getNearestObstacle(c_obs, parent)
-    feature_vec = np.array([f_obs])
+    feature_vec = np.array([f_obs, f_h])
     # feature_vec = np.array([f_cost, f_h, f_depth, f_obs])
     # print(f_cost, f_h, f_depth, f_obs)
     # print(feature_vec)
