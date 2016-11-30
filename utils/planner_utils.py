@@ -15,6 +15,14 @@ def reconstruct_path(came_from, start, goal, cost_so_far):
     return path, path_cost
 
 
+def normalize(feature, MAX, MIN):
+    try:
+        temp = np.divide(feature - MIN, MAX - MIN)
+    except RuntimeWarning:
+        temp = feature
+    return temp
+
+
 def getNearestObstacle(cobs, config, distance="euclidean"):
     dists = []
     temp = np.array(config)
@@ -24,6 +32,7 @@ def getNearestObstacle(cobs, config, distance="euclidean"):
         dists = [np.sum(np.abs(np.array(temp) - np.array(v))) for v in cobs]
     return min(dists)
 
+
 def getNodeFeatures(next, goal, heuristic, new_cost, obs_so_far, new_depth):
     f_cost = new_cost
     f_h = heuristic(next, goal)
@@ -31,8 +40,9 @@ def getNodeFeatures(next, goal, heuristic, new_cost, obs_so_far, new_depth):
     if len(obs_so_far) == 0:
         f_obs = 0
     else:
-        f_obs = 1.0/(0.0001 + getNearestObstacle(obs_so_far, next))
+        f_obs = getNearestObstacle(obs_so_far, next)
     return np.array([f_cost, f_h, f_depth, f_obs])
+
 
 def getEdgeFeatures(parent, child, goal_list, dist_to_goal_fn, cost_so_far, c_obs, tree_depths):
     f_cost = cost_so_far[parent]
@@ -45,7 +55,7 @@ def getEdgeFeatures(parent, child, goal_list, dist_to_goal_fn, cost_so_far, c_ob
         f_obs = 0
     else:
         # f_obs = getNearestObstacle(c_obs, parent)
-        f_obs = 1.0/(0.0001 + getNearestObstacle(c_obs, parent))
+        f_obs = getNearestObstacle(c_obs, parent)
     feature_vec = np.array([f_obs])
     # feature_vec = np.array([f_cost, f_h, f_depth, f_obs])
     # print(f_cost, f_h, f_depth, f_obs)
