@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import cv2
 import numpy as np
 from collections import namedtuple
@@ -18,9 +20,6 @@ _config.depth = abs(_config.goal[1] - _config.start[1] - _config.thickness - 2) 
 _config.width = 32          # Max Depth of trap
 _config.boundaries_x = sorted([_config.start[1], _config.goal[1]])                      # Region occupied by bars or trap
 _config.boundaries_y = sorted([_config.start[0], _config.goal[0]])                      # Region occupied by bars or trap
-
-print _config.depth, _config.width, _config.boundaries_x
-
 
 class Example:
     def __init__(self, count, param, disp):

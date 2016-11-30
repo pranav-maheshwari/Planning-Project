@@ -41,7 +41,7 @@ class SearchAgent(object):
             self.cost_so_far[start] = 0
             self.depth_so_far[start] = 0
             self.FEATURE.append(getNodeFeatures(start, goal_list[0], base_heuristic, 0, self.obs_so_far, 0))
-            print "FEATURE", self.FEATURE
+            # print "FEATURE", self.FEATURE
             # print(self.start_list, self.goal_list, self.graph.walls)
 
     # def setWeights(self, w):

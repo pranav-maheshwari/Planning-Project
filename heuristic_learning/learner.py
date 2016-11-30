@@ -9,11 +9,11 @@ sys.path.insert(0, os.path.abspath('..'))
 import numpy as np
 import random
 
-"""
+
 import tensorflow as tf
 import tflearn
 from tflearn.data_preprocessing import DataPreprocessing
-"""
+
 from search_agent import SearchAgent
 from utils.planner_utils import *
 from sklearn import linear_model
@@ -40,7 +40,7 @@ class Learner:
         self.episode_length = episode_length
         self.batch_size = batch_size
         self.num_epochs = num_epochs
-        self.weights_buffer = [(0.5)]
+        self.weights_buffer = [(0)]
         self.env_database = env_database
         self.base_heuristic = base_heuristic
         self.lambda_factor = lambda_factor
@@ -82,6 +82,23 @@ class Learner:
                                              batch_size=self.batch_size)
         self.m = tflearn.DNN(self.regression)
         """
+        #[Note: Try 'optimal' for alpha]
+        #[Note: Inside step function, don't ignore bias term]
+        """
+        self.regressor = linear_model.SGDRegressor(loss='squared_loss',\
+                                                   penalty='l2',\
+                                                   alpha = '0.3',\
+                                                   fit_intercept = True,\
+                                                   n_iter = 5,\
+                                                   shuffle = True,\
+                                                   verbose = 0,\
+                                                   learning_rate = 'invscaling',\
+                                                   eta0 = 0.01,\
+                                                   power_t = 0.25,\
+                                                   warm_start = True,\
+                                                   average=True)
+        """
+        self.regressor = linear_model.SGDRegressor(alpha=0.5, warm_start=True)
         if visualize:
             self.t1.start()
 
@@ -102,12 +119,12 @@ class Learner:
                 for i in graph.walls:
                     self.img[i[0], i[1]] = (0, 0, 0)
 
-            # w_mix = self.sampleMixture()
-            w_mix = self.weights_buffer[-1]
+            w_mix = self.sampleMixture()
+            # w_mix = self.weights_buffer[-1]
             w = self.learningBestFirstSearch(w_mix, planning_prob, visualize)
-            # self.weights_buffer.append(w)
+            self.weights_buffer.append(w)
             curr_episode += 1
-        print self.weights_buffer
+            print "W", self.weights_buffer
 
     def sampleFromDatabase(self):
         idx = np.random.randint(0, len(self.env_database))
@@ -144,15 +161,15 @@ class Learner:
             if child is None or feature_vec is None:
                 # print(parent, child, feature_vec, e_dot)
                 continue
-            print "parent", parent, "child", child, "feature_vec", feature_vec, "cost", best_cost, "hp", self.base_heuristic(
-                parent, goals_list[0]), "hc", self.base_heuristic(child, goals_list[0]), "edot", e_dot
+            # print "parent", parent, "child", child, "feature_vec", feature_vec, "cost", best_cost, "hp", self.base_heuristic(
+                # parent, goals_list[0]), "hc", self.base_heuristic(child, goals_list[0]), "edot", e_dot
 
             t += 1
             if done:
                 if self.include_terminal:
                     self.parent_database.append(parent)
                     self.child_database.append(child)
-                    self.feature_database.append(feature_vec.tolist())
+                    self.feature_database.append(feature_vec)
                     self.best_cost_database.append(best_cost)
                     self.e_dot_database.append(e_dot)
                 print("Episode Finished")
@@ -160,7 +177,7 @@ class Learner:
             else:
                 self.parent_database.append(parent)
                 self.child_database.append(child)
-                self.feature_database.append(feature_vec.tolist())
+                self.feature_database.append(feature_vec)
                 self.best_cost_database.append(best_cost)
                 self.e_dot_database.append(e_dot)  # tflearn wants this
 
@@ -168,7 +185,7 @@ class Learner:
         # print(np.asarray(self.feature_database).shape[0])
         # print(np.asarray(self.e_dot_database).shape)
         # print(np.asarray(self.feature_database).shape[0])
-        e_dot_database_array = np.asarray(self.e_dot_database).reshape(len(self.e_dot_database), 1)
+        # e_dot_database_array = np.asarray(self.e_dot_database).reshape(len(self.e_dot_database), 1)
         # self.m.fit(np.asarray(self.feature_database), e_dot_database_array, n_epoch = self.num_epochs, show_metric=True, batch_size = np.asarray(self.feature_database).shape[0], snapshot_epoch=False)
         # print("Normalized inputs were", self.input_.get)
         # print("\nRegression result:")
@@ -177,10 +194,19 @@ class Learner:
         # w_learnt = self.m.get_weights(self.linear.W)
         # tf.to_float(w_learnt)
         # print w_learnt
-        regr = linear_model.Ridge(alpha=0.5, normalize=True)
-        regr.fit(np.asarray(self.feature_database), e_dot_database_array)
-        print regr.coef_
-        return tuple(regr.coef_[0])
+        # regr = linear_model.Ridge(alpha=0.5, normalize=True)
+        # regr.fit(np.asarray(self.feature_database), e_dot_database_array)
+        temp = []
+        for i in self.e_dot_database:
+            temp.append(float(i))
+        self.e_dot_database = temp
+        # print np.array(self.feature_database)
+        # print np.array(self.e_dot_database)
+        # print(self.e_dot_database)
+        self.regressor.fit(np.array(self.feature_database), np.array(self.e_dot_database))
+
+        print self.regressor.coef_
+        return tuple(self.regressor.coef_)
 
     def display(self):
         cv2.namedWindow('Planning', cv2.WINDOW_NORMAL)

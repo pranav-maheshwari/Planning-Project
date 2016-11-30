@@ -9,7 +9,7 @@ from learner import Learner
 from graphs.HeuristicFunctions import *
 
 # Set the learning parameters
-total_episodes = 40
+total_episodes = 100
 learning_rate = 0.001
 episode_length = 500
 batch_size = 32
