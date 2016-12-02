@@ -10,18 +10,19 @@ _config = namedtuple('_config', 'res_x res_y type count width depth')
 
 _config.res_x = 64          # Resolution in X axis
 _config.res_y = 64          # Resolution in Y axis
-_config.type = "puddle"       # Map type (trap or bars or puddle)
+_config.type = "puddle"     # Map type (trap or bars or puddle)
 _config.count = 2           # Number of bars
 _config.length = 32         # Length of bars
-_config.start = [40, 5]    # Start Position
+_config.start = [40, 5]     # Start Position
 _config.goal = [40, 55]     # Goal Position
 _config.thickness = 5       # Thickness of walls
-_config.depth = abs(_config.goal[1] - _config.start[1] - _config.thickness - 2)             # Max Width of trap
+_config.depth = abs(_config.goal[1] - _config.start[1] - _config.thickness - 2)         # Max Width of trap
 _config.width = 32          # Max Depth of trap
-_config.puddle_size = 20    # Max puddle size
+_config.puddle_size = 30    # Max puddle size
 _config.puddle_count = 10   # Max number of puddles
 _config.boundaries_x = sorted([_config.start[1], _config.goal[1]])                      # Region occupied by bars or trap
 _config.boundaries_y = sorted([_config.start[0], _config.goal[0]])                      # Region occupied by bars or trap
+
 
 class Example:
     def __init__(self, count, param, disp):
@@ -87,10 +88,11 @@ class Example:
         cv2.imwrite(os.path.join(_config.type, str(count)) + ".jpg", self.output)
 
     def clearance_check(self, x, y, size):
-        if x <= _config.start[1] <= x + size or y <= _config.start[0] <= y + size or x <= _config.goal[1] <= x + size or y <= _config.goal[0] <= y + size:
+        if (x <= _config.start[1] <= x + size and y <= _config.start[0] <= y + size) or (x <= _config.goal[1] <= x + size and y <= _config.goal[0] <= y + size):
             return False
         else:
             return True
+
 
 def static_strings():
     output = list()

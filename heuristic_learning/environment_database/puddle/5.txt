@@ -1,6 +1,6 @@
 width 64
 height 64
-24, 0, 26, 2
+40, 36, 48, 44
 count 1
-start 40, 25
-goal 40, 50
+start 40, 5
+goal 40, 55
