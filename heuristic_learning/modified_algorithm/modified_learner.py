@@ -17,21 +17,17 @@ print("Import done")
 
 
 class Learner:
-    def __init__(total_episodes, \
-            episode_length, \
-            learning_rate, \
-            batch_size, \
-            test_env_database, \
-            seed = 1234, \
-            base_heuristic, \
-            include_terminal = False, \
-            batch_train, \
-            visualize = True):
+    def __init__(episode_length, \
+                learning_rate, \
+                test_env_database, \
+                seed = 1234, \
+                base_heuristic, \
+                include_terminal = False, \
+                batch_train, \
+                visualize = True):
 
-        self.total_episodes = total_episodes
         self.learning_rate = learning_rate
         self.episode_length = episode_length
-        self.batch_size = batch_size
         self.base_heuristic = base_heuristic
         self.include_terminal = include_terminal
         self.visualize = visualize
@@ -39,41 +35,37 @@ class Learner:
         self.t1 = Thread(target=self.display)
         self.test_env_database = test_env_database
         np.random.seed(seed)
-        self.learned_env_weights_batch = dict()
-
-        
+    
         #[Note: Try 'optimal' for alpha]
-        #[Note: Inside step function, don't ignore bias term]
-
-        self.regressor = linear_model.SGDRegressor(alpha=0.5)
+        #[Note: Inside step function, don't ignore bias term] 
         if self.visualize:
             self.t1.start()
 
     def learn_batch_mode(self, test = True):
         #In batch mode we learn on a single environment and 
         curr_env = 0
-
+        learned_env_weights = dict()
         for curr_env in xrange(len(self.test_env_database) :
             planning_prob = self.test_env_database[curr_episode]
-            graph = planning_prob[0]
-            start_list = planning_prob[1]
-            goal_list = planning_prob[2]
             # Initialize visualization
             if self.visualize:
-                self.img = np.ones([graph.width, graph.height, 3]) * 255
-                for start in start_list:
-                    self.img[start[0], start[1]] = (0, 255, 0)
-                for goal in goal_list:
-                    self.img[goal[0], goal[1]] = (0, 0, 255)
-                for i in graph.walls:
-                    self.img[i[0], i[1]] = (0, 0, 0)
-
-            w = self.learningBestFirstSearchBatch(planning_prob, self.base_heuristic)#, self.feature_map)
+                self.img = self.initialize_image(self.img, planning_prob)        
+            w_b = self.learningBestFirstSearchBatch(planning_prob, self.base_heuristic)
             #Store learned weights in dictionary for environments
-            self.learned_env_weights_batch[curr_episode] = w
+            learned_env_weights_batch[curr_episode] = w
             #Now we test weights in an environment
             if test:
-                num_expansions, errors = self.test_weights_in_env(w, planning_prob)
+                num_expansions, errors = self.test_weights_in_env(w_b, planning_prob)
+            return learned_env_weights_batch
+
+    def learn_online_mode(self):
+        curr_env = 0
+        for curr_env in xrange(len(self.test_env_database) :
+            planning_prob = self.test_env_database[curr_episode]
+            # Initialize visualization
+            if self.visualize:
+                self.img = self.initialize_image(self.img, planning_prob)
+            self.learningBestFirstSearchBatch(planning_prob, self.base_heuristic)
 
 
     def learningBestFirstSearchBatch(self, planning_prob):
@@ -102,22 +94,22 @@ class Learner:
             if done:
                 if self.include_terminal:
                     feature_database.append(feature_vec)
-                    e_dot_database.append(e_dot)
+                    error_database.append(e_dot)
                 print("Episode Finished")
                 break
             else:
                 feature_database.append(feature_vec)
-                e_dot_database.append(error_target)  
+                error_database.append(error_target)  
         print("Initiate learning")
-
+        regressor = linear_model.SGDRegressor(alpha=0.5)
         temp = []
-        for i in self.e_dot_database:
+        for i in error_database:
             temp.append(float(i))
-        self.e_dot_database = temp
-        self.regressor.fit(np.array(self.feature_database), np.array(self.e_dot_database))
+        error_database = temp
+        regressor.fit(np.array(feature_database), np.array(error_database))
 
-        print self.regressor.coef_
-        return tuple(self.regressor.coef_) #[NOTE: Take bias terms into account as well]
+        print regressor.coef_
+        return tuple(regressor.coef_, regressor.intercept_) #[NOTE: Take bias terms into account as well]
 
     
     def test_weights_in_env(self, weights, planning_prob):
@@ -155,3 +147,13 @@ class Learner:
         while True:
             cv2.imshow('Planning', self.img)
             cv2.waitKey(30)
+
+    def initialize_image(self, image, planning_prob):
+        img = np.ones([graph.width, graph.height, 3]) * 255
+        for start in start_list:
+            self.img[start[0], start[1]] = (0, 255, 0)
+        for goal in goal_list:
+            self.img[goal[0], goal[1]] = (0, 0, 255)
+        for i in graph.walls:
+            self.img[i[0], i[1]] = (0, 0, 0)
+        return img

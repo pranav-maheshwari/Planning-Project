@@ -66,7 +66,7 @@ class BatchSearchAgent(SearchAgent):
             done = True
             print("Done coz found goal")
             return done, goal, 0, 0
-        neighbors, obs_neighbors = self.graph.neighbors(current)
+        neighbors = self.graph.neighbors(current)
         #Add obstacle neighbors to obs_so_far
         # for obs_neighbor in obs_neighbors:
         #     self.obs_so_far.add(obs_neighbor) 
@@ -126,7 +126,7 @@ class OnlineSearchAgent(SearchAgent):
                 print("Done coz goal found")
                 done = True
                 return done, current
-            neighbors, obs_neighbors = self.graph.getNeighbors(current)
+            neighbors = self.graph.getNeighbors(current)
             #We need to update the weights now
             #Calculate best child according to the consistency equation x* = argmin(c(x,x') + h(x'))
             best_c_plus_h_x_dash, best_child_idx = min(enumerate([self.graph.cost(current, i) + self.base_heuristic(i, self.goal)]), key=operator.itemgetter(1))
@@ -160,7 +160,7 @@ class OnlineSearchAgent(SearchAgent):
 
 
 def TestAgent(SearchAgent):
-    def __init__(self, graph, start, goal, base_heuristic, feature_map):
+    def __init__(self, graph, start, goal, base_heuristic, feature_map, a_star = True):
         self.graph  = graph
         self.frontier = PriorityQueue()
         self.start = start
@@ -169,7 +169,7 @@ def TestAgent(SearchAgent):
         self.feature_map = feature_map
         self.came_from = {}
         self.cost_so_far = {}
-        
+        self.a_star = a_star
         self.frontier.put(start, 0 + self.base_heuristic(start, goal))
        
 
@@ -182,8 +182,7 @@ def TestAgent(SearchAgent):
         h_x = self.base_heuristic(current, self.goal)
         if current == goal:
             break
-
-        neighbors, obs_neighbors = self.graph.neighbors(current)
+        neighbors = self.graph.neighbors(current)
         #Add obstacle neighbors to obs_so_far
         # for obs_neighbor in obs_neighbors:
         #     self.obs_so_far.add(obs_neighbor) 
@@ -203,7 +202,10 @@ def TestAgent(SearchAgent):
                 c_plus_h =  edge_cost + h_x_dash_cap #Now we check errors with improved heuristics
                 feature_vec = self.feature_map[next]
                 h_x_dash_cap = SearchAgent.get(next, feature_vec, weights, h_x_dash)
-                priority = new_cost + h_x_dash_cap
+                if self.a_star:
+                    priority = new_cost + h_x_dash_cap
+                else:
+                    priority = h_x_dash_cap
                 if c_plus_h < best_c_plus_h:
                     best_c_plus_h = c_plus_h
                     best_feature_vec = feature_map[(current, next)]

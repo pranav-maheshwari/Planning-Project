@@ -53,3 +53,4 @@ def env_to_graph(start_list, goals_list, width, height, walls):
             else:
                 g.weights[(i, j)] = 1  # Uniform cost graph
     return g
+    
