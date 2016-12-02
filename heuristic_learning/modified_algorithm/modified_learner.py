@@ -20,7 +20,7 @@ class Learner:
     def __init__(episode_length, \
                 learning_rate, \
                 test_env_database, \
-                seed = 1234, \
+                seed, \
                 base_heuristic, \
                 include_terminal = False, \
                 visualize = True):
@@ -59,7 +59,7 @@ class Learner:
 
     def learn_online_mode(self):
         curr_env = 0
-        for curr_env in xrange(len(self.test_env_database) :
+        for curr_env in xrange(len(self.test_env_database)) :
             planning_prob = self.test_env_database[curr_episode]
             # Initialize visualization
             if self.visualize:

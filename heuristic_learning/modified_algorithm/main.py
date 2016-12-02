@@ -3,9 +3,10 @@ import sys
 import os
 
 sys.path.insert(0, os.path.abspath('../..'))
+sys.path.insert(0, os.path.abspath('..'))
 
 from environment_database import *
-from modified_learner import ModifiedLearner
+from modified_learner import Learner
 from graphs.HeuristicFunctions import *
 
 # Set the learning parameters

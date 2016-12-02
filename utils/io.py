@@ -3,12 +3,14 @@ import os
 import sys
 
 sys.path.insert(0, os.path.abspath('..'))
+
 from graphs.GridWithWeights import *
 from graphs.GridWithWeightsSoftObs import *
 import re
 
 
 def read_env_from_file(file_name):
+    print file_name
     walls = []
     start_list = []
     goals_list = []
@@ -46,10 +48,10 @@ def read_env_from_file(file_name):
 
 
 def env_to_graph(start_list, goals_list, width, height, walls, connectivity = "four_connected", obstacles = "soft", obstacle_cost = 10):
-    if obstcles == "soft":
-        g.GridWithWeightsSoftObs(width, height, connectivity)
+    if obstacles == "soft":
+        g = GridWithWeightsSoftObs(width, height, connectivity)
     else:
-        g = GridWithWeights(width, height, connectivity)      
+        g = GridWithWeights(width, height, connectivity) 
     g.walls = walls
     # Set the weights using for loop
     for i in xrange(width):

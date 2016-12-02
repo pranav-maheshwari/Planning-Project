@@ -3,7 +3,7 @@ import numpy as np
 from collections import defaultdict
 
 class Feature:
-    def __init__(self, features, size_y, size_x, count, connectivity="four"):
+    def __init__(self, features, size_y, size_x, count, connectivity="four_connected"):
         self._connectivity = connectivity
         self.four_connected = [(-1, 0), (1, 0), (0, 1), (0, -1)]
         self.eight_connected = [(-1, 0), (1, 0), (0, 1), (0, -1), (1, 1), (-1, -1), (1, -1), (-1, 1)]
@@ -11,10 +11,11 @@ class Feature:
         self.limit_y = size_y
         self.feature_lookup = [dict()]*count
         self.feature = defaultdict(lambda: (size_y + size_x))
-        for i in range(count):
-            self.feature_lookup[i] = self.BFS(self.initiate_open_list(features[i]), self.initiate_grid(features[i]))
-        for i in self.feature_lookup[0].iterkeys():
-            self.feature[i] = tuple(d[i] for d in self.feature_lookup)
+        if count > 0:
+            for i in range(count):
+                self.feature_lookup[i] = self.BFS(self.initiate_open_list(features[i]), self.initiate_grid(features[i]))
+            for i in self.feature_lookup[0].iterkeys():
+                self.feature[i] = tuple(d[i] for d in self.feature_lookup)
 
     def initiate_open_list(self, feature):
         open_list = list()
@@ -49,14 +50,14 @@ class Feature:
 
     def successors(self, node):
         successors = list()
-        if self._connectivity == "four":
+        if self._connectivity == "four_connected":
             for i in self.four_connected:
                 temp_y = node[0] + i[0]
                 temp_x = node[1] + i[1]
                 if 0 <= temp_x < self.limit_x and 0 <= temp_y < self.limit_y:
                     successors.append((temp_y, temp_x))
             return successors
-        elif self._connectivity == "eight":
+        elif self._connectivity == "eight_connected":
             for i in self.eight_connected:
                 temp_y = node[0] + i[0]
                 temp_x = node[1] + i[1]

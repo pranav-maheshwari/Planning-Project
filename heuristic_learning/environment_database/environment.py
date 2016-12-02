@@ -64,8 +64,8 @@ class Example:
                     x = random.randint(0, _config.res_x - puddle_size - 1)
                     y = random.randint(0, _config.res_y - puddle_size - 1)
                     while not self.clearance_check(x, y, puddle_size):
-                        x = random.randint(0, _config.res_x)
-                        y = random.randint(0, _config.res_y)
+                        x = random.randint(0, _config.res_x - puddle_size - 1)
+                        y = random.randint(0, _config.res_y - puddle_size - 1)
                     walls.append([x, y, x + puddle_size, y + puddle_size])
                     if disp:
                         for j in walls:
