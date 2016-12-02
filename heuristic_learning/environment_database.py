@@ -8,7 +8,7 @@ import numpy as np
 from utils.io import *
 from feature_extract import Feature
 
-NUM_ENV = 4
+NUM_ENV = 1
 
 
 def getEnvironmentDatabase(connectivity = "four_connected", obstacles = "soft", obstacle_cost = 10):

@@ -11,7 +11,7 @@ from graphs.HeuristicFunctions import *
 
 # Set the learning parameters
 total_episodes = 100
-episode_length = 500
+episode_length = 4000
 learning_rate = 0.001
 batch_size = 32
 seed = 1234

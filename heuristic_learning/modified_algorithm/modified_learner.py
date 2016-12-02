@@ -58,7 +58,7 @@ class Learner:
         #Now we test weights in an environment
         if test:
             num_expansions, errors = self.test_weights_in_env(w_b, planning_prob)
-            print num_expansions, errors
+            # print num_expansions, errors
         return learned_env_weights
 
     def learn_online_mode(self):
@@ -104,12 +104,13 @@ class Learner:
                 feature_database.append(feature_vec)
                 error_database.append(error_target)  
         print("Initiate learning")
-        regressor = linear_model.SGDRegressor(alpha = 0.9)
+        regressor = linear_model.SGDRegressor(alpha = 50, verbose = 5, n_iter = 10,fit_intercept = False)
         # temp = []
         # for i in error_database:
         #     temp.append(float(i))
         # error_database = temp
         print error_database
+        print feature_database
         try:
             check = len(feature_database[0])
         except TypeError:
@@ -117,10 +118,10 @@ class Learner:
         # print feature_database
         # print np.asarray(error_database).shape
         # print np.asarray(feature_database).shape
-        regressor.fit(feature_database, error_database)
+        regressor.fit(feature_database, error_database, coef_init= [0]*len(feature_database[0]))
         print regressor.coef_
-        print regressor.intercept_
-        return (regressor.coef_, regressor.intercept_) #[NOTE: Take bias terms into account as well]
+        # print regressor.intercept_
+        return (regressor.coef_, 0) #[NOTE: Take bias terms into account as well]
 
     
     def test_weights_in_env(self, w_b, planning_prob):
@@ -136,7 +137,7 @@ class Learner:
         # bias = (1.0*bias)/temp
         # bias= bias*len(weights)
         # weights = [(i*1.0)/temp for i in weights]
-        print weights, bias
+        # print weights, bias
         test_agent = TestAgent(graph, start, goal, self.base_heuristic, feature_map)
         t = 0
         # feature_database = []
