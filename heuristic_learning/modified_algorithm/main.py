@@ -26,7 +26,7 @@ batch_train = True
 visualize = True
 graph_connectivity = "four_connected"
 #Get database of environments to run experiments on
-test_env_database = getEnvironmentDatabase(graph_connectivity, "soft", 10)
+test_env_database = getEnvironmentDatabase(graph_connectivity, "soft", 100)
 
 l = Learner(total_episodes, \
             episode_length, \

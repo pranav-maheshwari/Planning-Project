@@ -44,7 +44,7 @@ class Learner:
 
     def learn_batch_mode(self, test = True):
         #In batch mode we learn on a single environment and 
-        curr_env = 1
+        curr_env = 0
         learned_env_weights = dict()
         # print len(self.test_env_database)
         # for curr_env in xrange(len(self.test_env_database)):
@@ -88,7 +88,7 @@ class Learner:
         while t < self.episode_length:
             done, current, error_target, feature_vec = s.step()
             self.img[current[0], current[1]] = [255, 0, 0]
-            if current is None or feature_vec is None:
+            if current is None or error_target is None or feature_vec is None:
                 # print(parent, child, feature_vec, e_dot)
                 continue
             # print "parent", parent, "child", child, "feature_vec", feature_vec, "cost", best_cost, "hp", self.base_heuristic(
@@ -104,18 +104,19 @@ class Learner:
                 feature_database.append(feature_vec)
                 error_database.append(error_target)  
         print("Initiate learning")
-        regressor = linear_model.SGDRegressor(alpha = 0.5)
+        regressor = linear_model.SGDRegressor(alpha = 0.9)
         # temp = []
         # for i in error_database:
         #     temp.append(float(i))
         # error_database = temp
+        print error_database
         try:
             check = len(feature_database[0])
         except TypeError:
             feature_database = [[i] for i  in feature_database]
         # print feature_database
-        print np.asarray(error_database).shape
-        print np.asarray(feature_database).shape
+        # print np.asarray(error_database).shape
+        # print np.asarray(feature_database).shape
         regressor.fit(feature_database, error_database)
         print regressor.coef_
         print regressor.intercept_
@@ -123,16 +124,45 @@ class Learner:
 
     
     def test_weights_in_env(self, w_b, planning_prob):
+        if self.visualize:
+            self.initialize_image(planning_prob) 
         graph = planning_prob[0]
         start = planning_prob[1][0]
         goal = planning_prob[2][0]
         feature_map = planning_prob[3]
         weights = w_b[0]
         bias = w_b[1]
+        # temp = sum(weights) + bias
+        # bias = (1.0*bias)/temp
+        # bias= bias*len(weights)
+        # weights = [(i*1.0)/temp for i in weights]
         print weights, bias
         test_agent = TestAgent(graph, start, goal, self.base_heuristic, feature_map)
-        num_expansions, errors = test_agent.run_test(weights, bias)
-        return num_expansions, errors
+        t = 0
+        # feature_database = []
+        error_database = []
+        print("Start Testing Episode")
+        while t < self.episode_length:
+            done, current, error_target = test_agent.run_test(weights, bias)
+            t += 1
+            self.img[current[0], current[1]] = [255, 0, 0]
+            if current is None or error_target is None:
+                # print(parent, child, feature_vec, e_dot)
+                continue
+            # print "parent", parent, "child", child, "feature_vec", feature_vec, "cost", best_cost, "hp", self.base_heuristic(
+                # parent, goals_list[0]), "hc", self.base_heuristic(child, goals_list[0]), "edot", e_dot
+            if done:
+                if self.include_terminal:
+                    # feature_database.append(feature_vec)
+                    error_database.append(e_dot)
+                print("Episode Finished")
+                break
+            else:
+                
+                error_database.append(error_target)  
+
+        num_expansions = t
+        return num_expansions, error_database
 
     def learningBestFirstSearchOnline(self, planning_prob):
 

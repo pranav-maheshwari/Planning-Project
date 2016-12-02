@@ -73,8 +73,8 @@ class BatchSearchAgent(SearchAgent):
             
             
             best_c_plus_h = float("inf")
-            best_feature_vec = []
-            best_error = 0
+            best_feature_vec = None
+            best_error = None
             for next in neighbors:
                 edge_cost = self.graph.cost(current, next)
                 new_cost = self.cost_so_far[current] + edge_cost
@@ -184,20 +184,24 @@ class TestAgent(SearchAgent):
        
 
     def run_test(self, weights, bias):
-        num_expansions = 0
-        best_error_buffer = []
-        while not self.frontier.empty():
-            current, current_priority = self.frontier.get()
-            num_expansions += 1
+        done = False
+        if self.frontier.empty():
+            done = True
+            print("Done coz front empty")
+            return done, None, None
+        else:
+            current, curr_priority = self.frontier.get()
             h_x = self.base_heuristic(current, self.goal)
+            # print(current)
             if current == self.goal:
-                break
+                done = True
+                print("Done coz found goal")
+                return done, current, 0
+            
             neighbors = self.graph.neighbors(current)
-     
-
             best_c_plus_h = float("inf")
-            best_feature_vec = []
-            best_error = 0
+            best_feature_vec = None
+            best_error = None
             for next in neighbors:
                 
                 edge_cost = self.graph.cost(current, next)
@@ -214,6 +218,7 @@ class TestAgent(SearchAgent):
                         priority = new_cost + h_x_dash_cap
                     else:
                         priority = h_x_dash_cap
+                    print h_x_dash_cap, h_x_dash, feature_vec
                     if c_plus_h < best_c_plus_h:
                         best_c_plus_h = c_plus_h
                         best_feature_vec = self.feature_map[(current, next)]
@@ -222,5 +227,5 @@ class TestAgent(SearchAgent):
                     self.cost_so_far[next] = new_cost
                     self.frontier.put(next, priority)
                     self.came_from[next] = current
-            best_error_buffer.append(best_error)
-        return num_expansions, best_error_buffer
+            
+            return done, current, best_error
