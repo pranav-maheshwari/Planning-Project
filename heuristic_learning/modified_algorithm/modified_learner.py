@@ -105,13 +105,13 @@ class Learner:
                 error_database.append(error_target)  
         print("Initiate learning")
         regressor = linear_model.SGDRegressor(alpha = 0.5)
-        temp = []
-        for i in error_database:
-            temp.append(float(i))
-        error_database = temp
-        print error_database
-        print feature_database
-        regressor.fit(np.array(feature_database), np.array(error_database))
+        # temp = []
+        # for i in error_database:
+        #     temp.append(float(i))
+        # error_database = temp
+        # print len(error_database[0])
+        # print len(feature_database[0])
+        regressor.fit(feature_database, error_database)
         print regressor.coef_
         print regressor.intercept_
         return (regressor.coef_, regressor.intercept_) #[NOTE: Take bias terms into account as well]

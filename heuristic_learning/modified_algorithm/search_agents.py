@@ -91,10 +91,13 @@ class BatchSearchAgent(SearchAgent):
                         best_c_plus_h = c_plus_h
                         best_feature_vec = self.feature_map[next]
                         best_error = SearchAgent.getEDot(edge_cost, h_x, h_x_dash)
+                        
+                        
+                        # print edge_cost + h_x_dash - h_x
+                    
                     self.cost_so_far[next] = new_cost
                     self.frontier.put(next, priority)
                     self.came_from[next] = current
-            
             return done, current, best_error, best_feature_vec
         
 
