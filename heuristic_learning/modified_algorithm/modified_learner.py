@@ -23,7 +23,6 @@ class Learner:
                 seed = 1234, \
                 base_heuristic, \
                 include_terminal = False, \
-                batch_train, \
                 visualize = True):
 
         self.learning_rate = learning_rate
@@ -45,7 +44,7 @@ class Learner:
         #In batch mode we learn on a single environment and 
         curr_env = 0
         learned_env_weights = dict()
-        for curr_env in xrange(len(self.test_env_database) :
+        for curr_env in xrange(len(self.test_env_database)) :
             planning_prob = self.test_env_database[curr_episode]
             # Initialize visualization
             if self.visualize:
@@ -107,7 +106,6 @@ class Learner:
             temp.append(float(i))
         error_database = temp
         regressor.fit(np.array(feature_database), np.array(error_database))
-
         print regressor.coef_
         return tuple(regressor.coef_, regressor.intercept_) #[NOTE: Take bias terms into account as well]
 

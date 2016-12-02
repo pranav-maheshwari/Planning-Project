@@ -23,17 +23,17 @@ include_terminal = False
 batch_train = True
 
 visualize = True
+graph_connectivity = "four_connected"
 #Get database of environments to run experiments on
-test_env_database = getEnvironmentDatabase()
+test_env_database = getEnvironmentDatabase(graph_connectivity, "soft", 10)
 
 l = ModifiedLearner(total_episodes, \
             episode_length, \
             learning_rate, \
-            batch_size, \
             test_env_database, \
             seed, \
             base_heuristic, \
             include_terminal, \
-            batch_train, \
             visualize)
-l.learn() 
+
+l.learn_batch_mode()

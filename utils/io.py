@@ -4,6 +4,7 @@ import sys
 
 sys.path.insert(0, os.path.abspath('..'))
 from graphs.GridWithWeights import *
+from graphs.GridWithWeightsSoftObs import *
 import re
 
 
@@ -44,14 +45,17 @@ def read_env_from_file(file_name):
     return start_list, goals_list, width, height, walls, count, features
 
 
-def env_to_graph(start_list, goals_list, width, height, walls):
-    g = GridWithWeights(width, height, "four_connected")
+def env_to_graph(start_list, goals_list, width, height, walls, connectivity = "four_connected", obstacles = "soft", obstacle_cost = 10):
+    if obstcles == "soft":
+        g.GridWithWeightsSoftObs(width, height, connectivity)
+    else:
+        g = GridWithWeights(width, height, connectivity)      
     g.walls = walls
     # Set the weights using for loop
     for i in xrange(width):
         for j in xrange(height):
             if (i, j) in g.walls:
-                g.weights[(i,j)] = 10
+                g.weights[(i,j)] = obstacle_cost
             else:
                 g.weights[(i, j)] = 1  # Uniform cost graph
     return g

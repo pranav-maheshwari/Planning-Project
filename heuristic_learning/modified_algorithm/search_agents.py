@@ -40,7 +40,7 @@ class SearchAgent(object):
         return np.dot(feature_vec, weights) + bias
 
 class BatchSearchAgent(SearchAgent):
-    def __init__(self, graph, start, goal, base_heuristic, feature_map):
+    def __init__(self, graph, start, goal, base_heuristic, feature_map, a_star = True):
         self.graph  = graph
         self.frontier = PriorityQueue()
         self.start = start
@@ -67,9 +67,7 @@ class BatchSearchAgent(SearchAgent):
             print("Done coz found goal")
             return done, goal, 0, 0
         neighbors = self.graph.neighbors(current)
-        #Add obstacle neighbors to obs_so_far
-        # for obs_neighbor in obs_neighbors:
-        #     self.obs_so_far.add(obs_neighbor) 
+
         
         best_c_plus_h = float("inf")
         best_feature_vec = []
@@ -86,7 +84,10 @@ class BatchSearchAgent(SearchAgent):
                 h_x_dash = base_heuristic(next, goal) 
                 #Check if it is best child
                 c_plus_h =  edge_cost + h_x_dash
-                priority = new_cost + h_x_dash
+                if self.a_star:
+                    priority = new_cost + h_x_dash
+                else:
+                    priority = h_x_dash
                 if c_plus_h < best_c_plus_h:
                     best_c_plus_h = c_plus_h
                     best_feature_vec = self.feature_map[next]
@@ -183,9 +184,7 @@ def TestAgent(SearchAgent):
         if current == goal:
             break
         neighbors = self.graph.neighbors(current)
-        #Add obstacle neighbors to obs_so_far
-        # for obs_neighbor in obs_neighbors:
-        #     self.obs_so_far.add(obs_neighbor) 
+ 
 
         best_c_plus_h = float("inf")
         best_feature_vec = []

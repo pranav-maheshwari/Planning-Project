@@ -8,16 +8,16 @@ import numpy as np
 from utils.io import *
 from feature_extract import Feature
 
-NUM_BUGTRAP = 99
+NUM_ENV = 99
 
 
-def getEnvironmentDatabase():
-    graphs = []
+def getEnvironmentDatabase(connectivity = "four", obstacles = "soft", obstacle_cost = 10):
+    planning_problems = []
     for i in xrange(NUM_BUGTRAP):
-        file_name = "../heuristic_learning/environment_database/bugtrap_environments/" + str(i) + ".txt"
+        file_name = "../heuristic_learning/environment_database/puddle/" + str(i) + ".txt"
         start_list, goals_list, width, height, walls, count, features = read_env_from_file(file_name)
-        g = env_to_graph(start_list, goals_list, width, height, walls)
-        calculate_feature = Feature(features, height, width, count)
-        feature = calculate_feature.get_feature()
-        graphs.append((g, start_list, goals_list))  # ,feature_map
-    return graphs, feature
+        g = env_to_graph(start_list, goals_list, width, height, walls, connectivity, obstacles, obstacle_cost)
+        feature_obj = Feature(features, height, width, count)
+        feature_map = feature_obj.get_feature()
+        planning_problems.append((g, start_list, goals_list, feature_map))  # ,feature_map
+    return planning_problems
