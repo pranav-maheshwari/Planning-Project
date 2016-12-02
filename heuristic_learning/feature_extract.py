@@ -1,6 +1,6 @@
 import Queue
 import numpy as np
-
+from collections import defaultdict
 
 class Feature:
     def __init__(self, features, size_y, size_x, count, connectivity="four"):
@@ -9,9 +9,12 @@ class Feature:
         self.eight_connected = [(-1, 0), (1, 0), (0, 1), (0, -1), (1, 1), (-1, -1), (1, -1), (-1, 1)]
         self.limit_x = size_x
         self.limit_y = size_y
-        self.feature_lookup = list()
+        self.feature_lookup = [dict()]*count
+        self.feature = defaultdict(lambda: (size_y + size_x))
         for i in range(count):
-            self.feature_lookup.append(self.BFS(self.initiate_open_list(features[i]), self.initiate_grid(features[i])))
+            self.feature_lookup[i] = self.BFS(self.initiate_open_list(features[i]), self.initiate_grid(features[i]))
+        for i in self.feature_lookup[0].iterkeys():
+            self.feature[i] = tuple(d[i] for d in self.feature_lookup)
 
     def initiate_open_list(self, feature):
         open_list = list()
@@ -61,8 +64,5 @@ class Feature:
                     successors.append((temp_y, temp_x))
             return successors
 
-    def feature_vector(self, node):
-        vector = np.array([])
-        for i in range(len(self.feature_lookup)):
-            np.append(vector, self.feature_lookup[i][node])
-        return vector
+    def get_feature(self):
+        return self.feature
