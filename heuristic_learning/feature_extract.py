@@ -65,7 +65,9 @@ class Feature:
                 if j not in tree:
                     tree[j] = tree[i] + grid[j[0]][j[1]]
                     if self.additional_features:
-                        gradient[j] = [i[0] - j[0], i[1] - j[1]]
+                        temp = [i[0] - j[0], i[1] - j[1]]
+                        n = np.linalg.norm(temp)
+                        gradient[j] = [(1.0*i)/n for i in temp]
                     expand.put(j)
         if self.additional_features:
             return tree, gradient
