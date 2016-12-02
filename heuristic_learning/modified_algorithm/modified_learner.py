@@ -44,7 +44,7 @@ class Learner:
 
     def learn_batch_mode(self, test = True):
         #In batch mode we learn on a single environment and 
-        curr_env = 3
+        curr_env = 1
         learned_env_weights = dict()
         # print len(self.test_env_database)
         # for curr_env in xrange(len(self.test_env_database)):
@@ -109,8 +109,13 @@ class Learner:
         # for i in error_database:
         #     temp.append(float(i))
         # error_database = temp
-        # print len(error_database[0])
-        # print len(feature_database[0])
+        try:
+            check = len(feature_database[0])
+        except TypeError:
+            feature_database = [[i] for i  in feature_database]
+        # print feature_database
+        print np.asarray(error_database).shape
+        print np.asarray(feature_database).shape
         regressor.fit(feature_database, error_database)
         print regressor.coef_
         print regressor.intercept_
@@ -124,6 +129,7 @@ class Learner:
         feature_map = planning_prob[3]
         weights = w_b[0]
         bias = w_b[1]
+        print weights, bias
         test_agent = TestAgent(graph, start, goal, self.base_heuristic, feature_map)
         num_expansions, errors = test_agent.run_test(weights, bias)
         return num_expansions, errors

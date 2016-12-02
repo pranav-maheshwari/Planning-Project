@@ -222,5 +222,5 @@ class TestAgent(SearchAgent):
                     self.cost_so_far[next] = new_cost
                     self.frontier.put(next, priority)
                     self.came_from[next] = current
-                best_error_buffer.append(best_error)
+            best_error_buffer.append(best_error)
         return num_expansions, best_error_buffer
