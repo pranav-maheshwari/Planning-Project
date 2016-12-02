@@ -102,7 +102,7 @@ class Learner:
         if visualize:
             self.t1.start()
 
-    def learn(self, visualize=True):
+    def learn(self, batch_learn = True):
         curr_episode = 0
         while curr_episode < self.total_episodes:
             planning_prob = self.sampleFromDatabase()
@@ -182,27 +182,10 @@ class Learner:
                 self.e_dot_database.append(e_dot)  # tflearn wants this
 
         print("Initiate learning")
-        # print(np.asarray(self.feature_database).shape[0])
-        # print(np.asarray(self.e_dot_database).shape)
-        # print(np.asarray(self.feature_database).shape[0])
-        # e_dot_database_array = np.asarray(self.e_dot_database).reshape(len(self.e_dot_database), 1)
-        # self.m.fit(np.asarray(self.feature_database), e_dot_database_array, n_epoch = self.num_epochs, show_metric=True, batch_size = np.asarray(self.feature_database).shape[0], snapshot_epoch=False)
-        # print("Normalized inputs were", self.input_.get)
-        # print("\nRegression result:")
-        # print("Y = " + str(self.m.get_weights(self.linear.W)) +
-        # 		"*X") #+ str(self.m.get_weights(self.linear.b)))
-        # w_learnt = self.m.get_weights(self.linear.W)
-        # tf.to_float(w_learnt)
-        # print w_learnt
-        # regr = linear_model.Ridge(alpha=0.5, normalize=True)
-        # regr.fit(np.asarray(self.feature_database), e_dot_database_array)
         temp = []
         for i in self.e_dot_database:
             temp.append(float(i))
         self.e_dot_database = temp
-        # print np.array(self.feature_database)
-        # print np.array(self.e_dot_database)
-        # print(self.e_dot_database)
         self.regressor.fit(np.array(self.feature_database), np.array(self.e_dot_database))
 
         print self.regressor.coef_
