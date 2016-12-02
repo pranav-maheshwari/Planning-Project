@@ -49,6 +49,7 @@ def env_to_graph(start_list, goals_list, width, height, walls):
     for i in xrange(width):
         for j in xrange(height):
             if (i, j) in g.walls:
-                continue
-            g.weights[(i, j)] = 1  # Uniform cost graph
+                g.weights[(i,j)] = 10
+            else:
+                g.weights[(i, j)] = 1  # Uniform cost graph
     return g

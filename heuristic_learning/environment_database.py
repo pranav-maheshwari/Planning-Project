@@ -11,8 +11,9 @@ def getEnvironmentDatabase():
 	graphs = []
 	for i in xrange(NUM_BUGTRAP):
 		file_name = "../heuristic_learning/environment_database/bugtrap_environments/" + str(i) + ".txt"
-		start_list, goals_list, width, height, walls = read_env_from_file(file_name)
+		start_list, goals_list, width, height, walls, count, features = read_env_from_file(file_name)
 		g = env_to_graph(start_list, goals_list, width, height, walls)
-		graphs.append((g,start_list, goals_list))
+		#feature_map = computer_feature_map(graph)
+		graphs.append((g,start_list, goals_list)) #,feature_map
 	return graphs
 
