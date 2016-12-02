@@ -3,7 +3,7 @@ import numpy as np
 from collections import defaultdict
 
 class Feature:
-    def __init__(self, features, size_y, size_x, count, connectivity="four_connected"):
+    def __init__(self, features, size_y, size_x, count, normalize=True, connectivity="four_connected"):
         self._connectivity = connectivity
         self.four_connected = [(-1, 0), (1, 0), (0, 1), (0, -1)]
         self.eight_connected = [(-1, 0), (1, 0), (0, 1), (0, -1), (1, 1), (-1, -1), (1, -1), (-1, 1)]
@@ -11,11 +11,14 @@ class Feature:
         self.limit_y = size_y
         self.feature_lookup = [dict()]*count
         self.feature = defaultdict(lambda: (size_y + size_x))
+        n = 1
+        if normalize:
+            n = 64
         if count > 0:
             for i in range(count):
                 self.feature_lookup[i] = self.BFS(self.initiate_open_list(features[i]), self.initiate_grid(features[i]))
             for i in self.feature_lookup[0].iterkeys():
-                self.feature[i] = tuple(d[i] for d in self.feature_lookup)
+                self.feature[i] = tuple((1.0*d[i])/n for d in self.feature_lookup)
 
     def initiate_open_list(self, feature):
         open_list = list()
