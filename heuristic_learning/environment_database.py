@@ -8,13 +8,13 @@ import numpy as np
 from utils.io import *
 from feature_extract import Feature
 
-NUM_ENV = 99
+NUM_ENV = 4
 
 
 def getEnvironmentDatabase(connectivity = "four_connected", obstacles = "soft", obstacle_cost = 10):
     planning_problems = []
     for i in xrange(NUM_ENV):
-        file_name = "../heuristic_learning/environment_database/puddle/" + str(i) + ".txt"
+        file_name = "../../heuristic_learning/environment_database/puddle/" + str(i) + ".txt"
         start_list, goals_list, width, height, walls, count, features = read_env_from_file(file_name)
         g = env_to_graph(start_list, goals_list, width, height, walls, connectivity, obstacles, obstacle_cost)
         feature_obj = Feature(features, height, width, count, connectivity)

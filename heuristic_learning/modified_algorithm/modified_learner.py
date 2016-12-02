@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.abspath('..'))
 import numpy as np
 import random
 
-from search_agents import BatchSearchAgent, OnlineSearchAgent
+from search_agents import BatchSearchAgent, OnlineSearchAgent, TestAgent
 from utils.planner_utils import *
 from sklearn import linear_model
 
@@ -17,12 +17,14 @@ print("Import done")
 
 
 class Learner:
-    def __init__(episode_length, \
-                learning_rate, \
-                test_env_database, \
-                seed, \
-                base_heuristic, \
-                include_terminal = False, \
+    def __init__(self,\
+                total_episodes,\
+                episode_length,\
+                learning_rate,\
+                test_env_database,\
+                seed,\
+                base_heuristic,\
+                include_terminal = False,\
                 visualize = True):
 
         self.learning_rate = learning_rate
@@ -42,20 +44,22 @@ class Learner:
 
     def learn_batch_mode(self, test = True):
         #In batch mode we learn on a single environment and 
-        curr_env = 0
+        curr_env = 3
         learned_env_weights = dict()
-        for curr_env in xrange(len(self.test_env_database)) :
-            planning_prob = self.test_env_database[curr_episode]
-            # Initialize visualization
-            if self.visualize:
-                self.img = self.initialize_image(self.img, planning_prob)        
-            w_b = self.learningBestFirstSearchBatch(planning_prob, self.base_heuristic)
-            #Store learned weights in dictionary for environments
-            learned_env_weights_batch[curr_episode] = w
-            #Now we test weights in an environment
-            if test:
-                num_expansions, errors = self.test_weights_in_env(w_b, planning_prob)
-            return learned_env_weights_batch
+        # print len(self.test_env_database)
+        # for curr_env in xrange(len(self.test_env_database)):
+        planning_prob = self.test_env_database[curr_env]
+        # Initialize visualization
+        if self.visualize:
+            self.initialize_image(planning_prob)        
+        w_b = self.learningBestFirstSearchBatch(planning_prob)
+        #Store learned weights in dictionary for environments
+        learned_env_weights[curr_env] = w_b
+        #Now we test weights in an environment
+        if test:
+            num_expansions, errors = self.test_weights_in_env(w_b, planning_prob)
+            print num_expansions, errors
+        return learned_env_weights
 
     def learn_online_mode(self):
         curr_env = 0
@@ -63,7 +67,7 @@ class Learner:
             planning_prob = self.test_env_database[curr_episode]
             # Initialize visualization
             if self.visualize:
-                self.img = self.initialize_image(self.img, planning_prob)
+                self.initialize_image(planning_prob)
             self.learningBestFirstSearchBatch(planning_prob, self.base_heuristic)
 
 
@@ -82,9 +86,9 @@ class Learner:
 
         print("Start New Episode")
         while t < self.episode_length:
-            done, error_target, feature_vec = s.step(curr_weights, self.base_heuristic)
-            self.img[parent[0], parent[1]] = [255, 0, 0]
-            if child is None or feature_vec is None:
+            done, current, error_target, feature_vec = s.step()
+            self.img[current[0], current[1]] = [255, 0, 0]
+            if current is None or feature_vec is None:
                 # print(parent, child, feature_vec, e_dot)
                 continue
             # print "parent", parent, "child", child, "feature_vec", feature_vec, "cost", best_cost, "hp", self.base_heuristic(
@@ -100,23 +104,29 @@ class Learner:
                 feature_database.append(feature_vec)
                 error_database.append(error_target)  
         print("Initiate learning")
-        regressor = linear_model.SGDRegressor(alpha=0.5)
+        regressor = linear_model.SGDRegressor(alpha = 0.5)
         temp = []
         for i in error_database:
             temp.append(float(i))
         error_database = temp
+        print error_database
+        print feature_database
         regressor.fit(np.array(feature_database), np.array(error_database))
         print regressor.coef_
-        return tuple(regressor.coef_, regressor.intercept_) #[NOTE: Take bias terms into account as well]
+        print regressor.intercept_
+        return (regressor.coef_, regressor.intercept_) #[NOTE: Take bias terms into account as well]
 
     
-    def test_weights_in_env(self, weights, planning_prob):
+    def test_weights_in_env(self, w_b, planning_prob):
         graph = planning_prob[0]
         start = planning_prob[1][0]
         goal = planning_prob[2][0]
         feature_map = planning_prob[3]
+        weights = w_b[0]
+        bias = w_b[1]
         test_agent = TestAgent(graph, start, goal, self.base_heuristic, feature_map)
-        num_expansions, errors = test_agent.run_test(weights)
+        num_expansions, errors = test_agent.run_test(weights, bias)
+        return num_expansions, errors
 
     def learningBestFirstSearchOnline(self, planning_prob):
 
@@ -146,12 +156,14 @@ class Learner:
             cv2.imshow('Planning', self.img)
             cv2.waitKey(30)
 
-    def initialize_image(self, image, planning_prob):
-        img = np.ones([graph.width, graph.height, 3]) * 255
+    def initialize_image(self, planning_prob):
+        graph = planning_prob[0]
+        start_list = planning_prob[1]
+        goal_list = planning_prob[2]
+        self.img = np.ones([graph.width, graph.height, 3]) * 255
         for start in start_list:
             self.img[start[0], start[1]] = (0, 255, 0)
         for goal in goal_list:
             self.img[goal[0], goal[1]] = (0, 0, 255)
         for i in graph.walls:
             self.img[i[0], i[1]] = (0, 0, 0)
-        return img

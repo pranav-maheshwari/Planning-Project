@@ -28,7 +28,7 @@ graph_connectivity = "four_connected"
 #Get database of environments to run experiments on
 test_env_database = getEnvironmentDatabase(graph_connectivity, "soft", 10)
 
-l = ModifiedLearner(total_episodes, \
+l = Learner(total_episodes, \
             episode_length, \
             learning_rate, \
             test_env_database, \

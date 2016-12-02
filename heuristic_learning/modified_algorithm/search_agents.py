@@ -10,6 +10,7 @@ sys.path.insert(0, os.path.abspath('../..'))
 
 from data_structures.PriorityQueue import *
 from graphs.GridWithWeights import *
+from graphs.GridWithWeightsSoftObs import *
 from graphs.HeuristicFunctions import *
 from utils.planner_utils import *
 import numpy as np
@@ -28,7 +29,7 @@ class SearchAgent(object):
     @staticmethod
     def getHcap(node, feature_vec, weights, bias, h_base):
         # From Equation: h_cap = h_base*(1 + e_cap_dot)
-        e_cap_dot = SearchAgent.getEcapDot(feature_vec, np.array(weights))
+        e_cap_dot = SearchAgent.getEcapDot(feature_vec, np.array(weights), bias)
         h_cap = h_base * (1 + e_cap_dot)
         return h_cap
 
@@ -46,8 +47,12 @@ class BatchSearchAgent(SearchAgent):
         self.base_heuristic = base_heuristic
         self.feature_map = feature_map
         self.frontier.put(start, 0 + self.base_heuristic(start, goal))
+        self.a_star = a_star
         self.came_from = {}
         self.cost_so_far = {}
+        self.came_from[start] = None
+        self.cost_so_far[start] = 0
+        # self.depth_so_far[start] = 0
 
     def step(self):
         #Does an A-star Search with base_heuristic and reutrns errors observed + features observed
@@ -58,28 +63,24 @@ class BatchSearchAgent(SearchAgent):
             return done, None, None, None
         else:
             current, curr_priority = self.frontier.get()
-            h_x = self.base_heuristic(current, goal)
+            h_x = self.base_heuristic(current, self.goal)
             # print(current)
             if current == self.goal:
                 done = True
                 print("Done coz found goal")
-                return done, goal, 0, 0
+                return done, current, 0, 0
             neighbors = self.graph.neighbors(current)
-
+            
             
             best_c_plus_h = float("inf")
             best_feature_vec = []
             best_error = 0
-
             for next in neighbors:
-                
                 edge_cost = self.graph.cost(current, next)
-                new_cost = cost_so_far[current] + edge_cost
-                
-                
-                if next not in cost_so_far or new_cost < cost_so_far[next]:
-                    new_depth = depth_so_far[current] + 1
-                    h_x_dash = base_heuristic(next, goal) 
+                new_cost = self.cost_so_far[current] + edge_cost
+                if next not in self.cost_so_far or new_cost < self.cost_so_far[next]:
+                    # new_depth = depth_so_far[current] + 1
+                    h_x_dash = self.base_heuristic(next, self.goal) 
                     #Check if it is best child
                     c_plus_h =  edge_cost + h_x_dash
                     if self.a_star:
@@ -90,9 +91,9 @@ class BatchSearchAgent(SearchAgent):
                         best_c_plus_h = c_plus_h
                         best_feature_vec = self.feature_map[next]
                         best_error = SearchAgent.getEDot(edge_cost, h_x, h_x_dash)
-                    cost_so_far[next] = new_cost
-                    frontier.put(next, priority)
-                    came_from[next] = current
+                    self.cost_so_far[next] = new_cost
+                    self.frontier.put(next, priority)
+                    self.came_from[next] = current
             
             return done, current, best_error, best_feature_vec
         
@@ -105,11 +106,15 @@ class OnlineSearchAgent(SearchAgent):
         self.goal = goal
         self.base_heuristic = base_heuristic
         self.feature_map = feature_map
-        self.frontier.put(start, 0 + self.base_heuristic(start, goal))
+        self.frontier.put(start, 0 + self.base_heuristic(start, self.goal))
         self.came_from = {}
         self.cost_so_far = {}
         self.a_star = a_star
         self.regressor = linear_model.SGDRegressor(alpha=0.5, warm_start = True)
+        self.came_from[start] = None
+        self.cost_so_far[start] = 0
+        self.depth_so_far[start] = 0
+
 
     def step(self):
         done = False
@@ -142,8 +147,8 @@ class OnlineSearchAgent(SearchAgent):
             for next in neighbors:
                 edge_cost = self.graph.cost(current, next)
                 new_cost = self.cost_so_far[current] + edge_cost
-                if next not in cost_so_far or new_cost < cost_so_far[next]:               
-                    new_depth = self.depth_so_far[current] + 1
+                if next not in self.cost_so_far or new_cost < self.cost_so_far[next]:               
+                    # new_depth = self.depth_so_far[current] + 1
                     new_feature_vec = self.feature_map[next]
                     h_x_dash_cap = SearchAgent.getHcapDash(next, new_feature_vec, curr_weights, curr_bias, self.base_heuristic(next, goal))
                     if self.a_star:
@@ -158,7 +163,8 @@ class OnlineSearchAgent(SearchAgent):
 
 
 
-def TestAgent(SearchAgent):
+class TestAgent(SearchAgent):
+
     def __init__(self, graph, start, goal, base_heuristic, feature_map, a_star = True):
         self.graph  = graph
         self.frontier = PriorityQueue()
@@ -170,6 +176,8 @@ def TestAgent(SearchAgent):
         self.cost_so_far = {}
         self.a_star = a_star
         self.frontier.put(start, 0 + self.base_heuristic(start, goal))
+        self.cost_so_far[start] = 0
+        self.came_from[start] = None
        
 
     def run_test(self, weights, bias):
@@ -179,7 +187,7 @@ def TestAgent(SearchAgent):
             current, current_priority = self.frontier.get()
             num_expansions += 1
             h_x = self.base_heuristic(current, self.goal)
-            if current == goal:
+            if current == self.goal:
                 break
             neighbors = self.graph.neighbors(current)
      
@@ -190,26 +198,26 @@ def TestAgent(SearchAgent):
             for next in neighbors:
                 
                 edge_cost = self.graph.cost(current, next)
-                new_cost = cost_so_far[current] + edge_cost
-                new_depth = depth_so_far[current] + 1
-                h_x_dash = base_heuristic(next, goal) 
+                new_cost = self.cost_so_far[current] + edge_cost
+                # new_depth = self.depth_so_far[current] + 1
+                h_x_dash = self.base_heuristic(next, self.goal) 
                 
-                if next not in cost_so_far or new_cost < cost_so_far[next]:
+                if next not in self.cost_so_far or new_cost < self.cost_so_far[next]:
                     #Check if it is best child
-                    c_plus_h =  edge_cost + h_x_dash_cap #Now we check errors with improved heuristics
+                    c_plus_h =  edge_cost + h_x_dash #Now we check errors with improved heuristics
                     feature_vec = self.feature_map[next]
-                    h_x_dash_cap = SearchAgent.get(next, feature_vec, weights, h_x_dash)
+                    h_x_dash_cap = SearchAgent.getHcap(next, feature_vec, weights, bias, h_x_dash)
                     if self.a_star:
                         priority = new_cost + h_x_dash_cap
                     else:
                         priority = h_x_dash_cap
                     if c_plus_h < best_c_plus_h:
                         best_c_plus_h = c_plus_h
-                        best_feature_vec = feature_map[(current, next)]
+                        best_feature_vec = self.feature_map[(current, next)]
                         best_error = SearchAgent.getEDot(edge_cost, h_x, h_x_dash)
 
-                    cost_so_far[next] = new_cost
-                    frontier.put(next, priority)
-                    came_from[next] = current
+                    self.cost_so_far[next] = new_cost
+                    self.frontier.put(next, priority)
+                    self.came_from[next] = current
                 best_error_buffer.append(best_error)
         return num_expansions, best_error_buffer

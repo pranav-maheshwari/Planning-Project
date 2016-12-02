@@ -14,6 +14,7 @@ class SquareGrid:
         return id not in self.walls
     
     def neighbors(self, id):
+        print("Really am here")
         (x, y) = id
         if self.connectivity == "four_connected":
             temp = [(x+1, y), (x, y-1), (x-1, y), (x, y+1)]
