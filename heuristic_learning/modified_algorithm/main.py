@@ -29,9 +29,11 @@ num_env_to_load = 101
 swamp_cost = 100
 load_from_pickle = False
 save_to_pickle = True
+need_additional_features = False
+preloaded = True
 #Get database of environments to run experiments on
 # if not load_from_pickle:
-test_env_database = getEnvironmentDatabase(graph_connectivity, "soft", swamp_cost, num_env_to_load)
+test_env_database = getEnvironmentDatabase(graph_connectivity, "soft", swamp_cost, num_env_to_load, )
 # 	if save_to_pickle:
 # 		pickle.dump( test_env_database, open( "save.p", "wb" ) )
 # else:

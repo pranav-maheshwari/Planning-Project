@@ -94,7 +94,7 @@ def dijkstra_search_fill(graph, start):
     cost_so_far[start] = 0
 
     while not frontier.empty():
-        current = frontier.get()
+        current, current_priority = frontier.get()
 
         for next in graph.neighbors(current):
             new_cost = cost_so_far[current] + graph.cost(current, next)
