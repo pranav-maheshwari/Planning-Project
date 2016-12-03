@@ -8,7 +8,7 @@ def Euclidean(cell, goal):
 
 
 def Manhattan(cell, goal):
-    return 3.0*np.sum(np.abs(np.array(cell) - np.array(goal)))
+    return np.sum(np.abs(np.array(cell) - np.array(goal)))
 
 
 def Octile(cell, goal):

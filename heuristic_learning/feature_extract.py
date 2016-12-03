@@ -2,6 +2,14 @@ import Queue
 import numpy as np
 from collections import defaultdict
 
+size_y = 64
+size_x = 64
+
+def not_a_lambda_with_additional():
+    return (size_y+size_x, 0, 0)
+
+def not_a_lambda():
+    return (size_y+size_x)
 
 class Feature:
     def __init__(self, features, size_y, size_x, count, normalize=True, additional_features=True, connectivity="four_connected"):
@@ -17,7 +25,7 @@ class Feature:
         if normalize:
             n = 64
         if self.additional_features:
-            self.feature = defaultdict(lambda: (size_y + size_x, 0, 0))
+            self.feature = defaultdict(not_a_lambda_with_additional)
             if count > 0:
                 for i in range(count):
                     self.distance_feature_lookup[i], self.gradient_feature_lookup[i] = self.BFS(self.initiate_open_list(features[i]), self.initiate_grid(features[i]))
@@ -27,7 +35,7 @@ class Feature:
                     temp = [d[i] for d in self.gradient_feature_lookup]
                     self.feature[i] = tuple(self.feature[i] + sum(temp, []))
         else:
-            self.feature = defaultdict(lambda: (size_y + size_x))
+            self.feature = defaultdict(not_a_lambda)
             if count > 0:
                 for i in range(count):
                     self.distance_feature_lookup[i] = self.BFS(self.initiate_open_list(features[i]), self.initiate_grid(features[i]))

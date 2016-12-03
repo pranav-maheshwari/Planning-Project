@@ -42,37 +42,37 @@ class Learner:
         if self.visualize:
             self.t1.start()
 
-    def learn_batch_mode(self, test = True):
+    def learn_batch_mode(self, max_env_num = 100, test = True):
         #In batch mode we learn on a single environment and 
-        curr_env = 100
-        learned_env_weights = dict()
-        # print len(self.test_env_database)
-        # for curr_env in xrange(len(self.test_env_database)):
-        planning_prob = self.test_env_database[curr_env]
-        # Initialize visualization
-        if self.visualize:
-            self.initialize_image(planning_prob)        
-        w_b = self.learningBestFirstSearchBatch(planning_prob)
-        #Store learned weights in dictionary for environments
-        learned_env_weights[curr_env] = w_b
-        #Now we test weights in an environment
-        if test:
-            # num_expansions, errors = self.test_weights_in_env(w_b, planning_prob) #[0.0644, -0.0297, 0.0255, -0.0643, 0.0154], 0)
-            #[-0.01555318, -0.35625475, -0.55566625, -0.5029324]), -0.41105624)
-            num_expansions, errors = self.test_weights_in_env(w_b, planning_prob)
-            print num_expansions, errors
+        # curr_env = 100
+        for curr_env in xrange(max_env_num):
+            learned_env_weights = dict()
+            # print len(self.test_env_database)
+            # for curr_env in xrange(len(self.test_env_database)):
+            planning_prob = self.test_env_database[curr_env]
+            # Initialize visualization
+            if self.visualize:
+                self.initialize_image(planning_prob)        
+            w_b = self.learningBestFirstSearchBatch(planning_prob)
+            #Store learned weights in dictionary for environments
+            learned_env_weights[curr_env] = w_b
+            #Now we test weights in an environment
+            if test:
+                # num_expansions, errors = self.test_weights_in_env(w_b, planning_prob) #[0.0644, -0.0297, 0.0255, -0.0643, 0.0154], 0)
+                #[-0.01555318, -0.35625475, -0.55566625, -0.5029324]), -0.41105624)
+                num_expansions, errors = self.test_weights_in_env(w_b, planning_prob)
+                print "Num of expansions during test(batch): ", num_expansions
 
         return learned_env_weights
 
-    def learn_online_mode(self):
-        curr_env = 100
-        # for curr_env in xrange(len(self.test_env_database)) :
-        planning_prob = self.test_env_database[curr_env]
-        # Initialize visualization
-        if self.visualize:
-            self.initialize_image(planning_prob)
-        self.learningBestFirstSearchOnline(planning_prob)
-        
+    def learn_online_mode(self, max_env_num = 100):
+        for curr_env in xrange(max_env_num):
+            # for curr_env in xrange(len(self.test_env_database)) :
+            planning_prob = self.test_env_database[curr_env]
+            # Initialize visualization
+            if self.visualize:
+                self.initialize_image(planning_prob)
+            self.learningBestFirstSearchOnline(planning_prob)
 
 
     def learningBestFirstSearchBatch(self, planning_prob):
@@ -109,7 +109,7 @@ class Learner:
                 error_database.append(error_target)  
         print("Num Expansions A*", t)
         print("Initiate learning")
-        regressor = linear_model.SGDRegressor(alpha = 0.03, verbose = 5, n_iter = 5, fit_intercept = True)#, average=True)
+        regressor = linear_model.SGDRegressor(alpha = 0.03, verbose = 0, n_iter = 5, fit_intercept = True)#, average=True)
         # regressor = linear_model.LinearRegression()
 
         # print error_database
