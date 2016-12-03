@@ -2,23 +2,38 @@ import Queue
 import numpy as np
 from collections import defaultdict
 
+
 class Feature:
-    def __init__(self, features, size_y, size_x, count, normalize=True, connectivity="four_connected"):
+    def __init__(self, features, size_y, size_x, count, normalize=True, additional_features=True, connectivity="four_connected"):
         self._connectivity = connectivity
         self.four_connected = [(-1, 0), (1, 0), (0, 1), (0, -1)]
         self.eight_connected = [(-1, 0), (1, 0), (0, 1), (0, -1), (1, 1), (-1, -1), (1, -1), (-1, 1)]
         self.limit_x = size_x
         self.limit_y = size_y
-        self.feature_lookup = [dict()]*count
-        self.feature = defaultdict(lambda: (size_y + size_x))
+        self.distance_feature_lookup = [dict()]*count
+        self.gradient_feature_lookup = [dict()]*count
+        self.additional_features = additional_features
         n = 1
         if normalize:
-            n = 128
-        if count > 0:
-            for i in range(count):
-                self.feature_lookup[i] = self.BFS(self.initiate_open_list(features[i]), self.initiate_grid(features[i]))
-            for i in self.feature_lookup[0].iterkeys():
-                self.feature[i] = tuple((1.0*d[i])/n for d in self.feature_lookup)
+            n = 64
+        if self.additional_features:
+            self.feature = defaultdict(lambda: (size_y + size_x, 0, 0))
+            if count > 0:
+                for i in range(count):
+                    self.distance_feature_lookup[i], self.gradient_feature_lookup[i] = self.BFS(self.initiate_open_list(features[i]), self.initiate_grid(features[i]))
+                for i in self.distance_feature_lookup[0].iterkeys():
+                    self.feature[i] = [(1.0*d[i])/n for d in self.distance_feature_lookup]
+                for i in self.feature.iterkeys():
+                    temp = [d[i] for d in self.gradient_feature_lookup]
+                    self.feature[i] = tuple(self.feature[i] + sum(temp, []))
+        else:
+            self.feature = defaultdict(lambda: (size_y + size_x))
+            if count > 0:
+                for i in range(count):
+                    self.distance_feature_lookup[i] = self.BFS(self.initiate_open_list(features[i]), self.initiate_grid(features[i]))
+                for i in self.distance_feature_lookup[0].iterkeys():
+                    self.feature[i] = tuple((1.0*d[i])/n for d in self.distance_feature_lookup)
+
 
     def initiate_open_list(self, feature):
         open_list = list()
@@ -40,16 +55,25 @@ class Feature:
     def BFS(self, open_list, grid):
         expand = Queue.Queue()
         tree = dict()
+        gradient = dict()
         for i in open_list:
             expand.put(i)
             tree[i] = 0
+            gradient[i] = [0, 0]
         while not expand.empty():
             i = expand.get()
             for j in self.successors(i):
                 if j not in tree:
                     tree[j] = tree[i] + grid[j[0]][j[1]]
+                    if self.additional_features:
+                        temp = [i[0] - j[0], i[1] - j[1]]
+                        n = np.linalg.norm(temp)
+                        gradient[j] = [(1.0*i)/n for i in temp]
                     expand.put(j)
-        return tree
+        if self.additional_features:
+            return tree, gradient
+        else:
+            return tree
 
     def successors(self, node):
         successors = list()
