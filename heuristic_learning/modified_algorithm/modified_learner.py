@@ -44,7 +44,7 @@ class Learner:
 
     def learn_batch_mode(self, test = True):
         #In batch mode we learn on a single environment and 
-        curr_env = 0
+        curr_env = 100
         learned_env_weights = dict()
         # print len(self.test_env_database)
         # for curr_env in xrange(len(self.test_env_database)):
@@ -57,18 +57,22 @@ class Learner:
         learned_env_weights[curr_env] = w_b
         #Now we test weights in an environment
         if test:
+            # num_expansions, errors = self.test_weights_in_env(w_b, planning_prob) #[0.0644, -0.0297, 0.0255, -0.0643, 0.0154], 0)
+            #[-0.01555318, -0.35625475, -0.55566625, -0.5029324]), -0.41105624)
             num_expansions, errors = self.test_weights_in_env(w_b, planning_prob)
-            # print num_expansions, errors
+            print num_expansions, errors
+
         return learned_env_weights
 
     def learn_online_mode(self):
-        curr_env = 0
-        for curr_env in xrange(len(self.test_env_database)) :
-            planning_prob = self.test_env_database[curr_episode]
-            # Initialize visualization
-            if self.visualize:
-                self.initialize_image(planning_prob)
-            self.learningBestFirstSearchBatch(planning_prob, self.base_heuristic)
+        curr_env = 100
+        # for curr_env in xrange(len(self.test_env_database)) :
+        planning_prob = self.test_env_database[curr_env]
+        # Initialize visualization
+        if self.visualize:
+            self.initialize_image(planning_prob)
+        self.learningBestFirstSearchOnline(planning_prob)
+        
 
 
     def learningBestFirstSearchBatch(self, planning_prob):
@@ -103,14 +107,13 @@ class Learner:
             else:
                 feature_database.append(feature_vec)
                 error_database.append(error_target)  
+        print("Num Expansions A*", t)
         print("Initiate learning")
-        regressor = linear_model.SGDRegressor(alpha = 50, verbose = 5, n_iter = 10,fit_intercept = False)
-        # temp = []
-        # for i in error_database:
-        #     temp.append(float(i))
-        # error_database = temp
-        print error_database
-        print feature_database
+        regressor = linear_model.SGDRegressor(alpha = 0.03, verbose = 5, n_iter = 5, fit_intercept = True)#, average=True)
+        # regressor = linear_model.LinearRegression()
+
+        # print error_database
+        # print feature_database
         try:
             check = len(feature_database[0])
         except TypeError:
@@ -118,12 +121,11 @@ class Learner:
         # print feature_database
         # print np.asarray(error_database).shape
         # print np.asarray(feature_database).shape
-        regressor.fit(feature_database, error_database, coef_init= [0]*len(feature_database[0]))
-        print regressor.coef_
+        regressor.fit(feature_database, error_database)# coef_init= [0]*len(feature_database[0]))
+        # print regressor.coef_
         # print regressor.intercept_
         return (regressor.coef_, 0) #[NOTE: Take bias terms into account as well]
 
-    
     def test_weights_in_env(self, w_b, planning_prob):
         if self.visualize:
             self.initialize_image(planning_prob) 
@@ -148,18 +150,13 @@ class Learner:
             t += 1
             self.img[current[0], current[1]] = [255, 0, 0]
             if current is None or error_target is None:
-                # print(parent, child, feature_vec, e_dot)
                 continue
-            # print "parent", parent, "child", child, "feature_vec", feature_vec, "cost", best_cost, "hp", self.base_heuristic(
-                # parent, goals_list[0]), "hc", self.base_heuristic(child, goals_list[0]), "edot", e_dot
             if done:
                 if self.include_terminal:
-                    # feature_database.append(feature_vec)
                     error_database.append(e_dot)
                 print("Episode Finished")
                 break
-            else:
-                
+            else:  
                 error_database.append(error_target)  
 
         num_expansions = t
@@ -176,7 +173,7 @@ class Learner:
         # Reset episode database before start of episode
         print("Start New Episode")
         while t < self.episode_length:
-            done, current = s.step(curr_weights, self.base_heuristic)
+            done, current = s.step()
             if current is None:
                 # print(parent, child, feature_vec, e_dot)
                 continue
@@ -185,7 +182,7 @@ class Learner:
             if done:
                 print("Episode Finished")
                 break 
-        print("Initiate learning")
+        print "Num expansions ", t
 
     def display(self):
         cv2.namedWindow('Planning', cv2.WINDOW_NORMAL)

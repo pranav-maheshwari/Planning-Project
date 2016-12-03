@@ -5,5 +5,5 @@ height 64
 53, 51, 56, 54
 22, 38, 36, 52
 count 4
-start 20, 63
-goal 30, 1
+start 30, 1
+goal 20, 63

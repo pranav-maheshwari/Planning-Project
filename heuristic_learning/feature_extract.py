@@ -13,7 +13,7 @@ class Feature:
         self.feature = defaultdict(lambda: (size_y + size_x))
         n = 1
         if normalize:
-            n = 64
+            n = 128
         if count > 0:
             for i in range(count):
                 self.feature_lookup[i] = self.BFS(self.initiate_open_list(features[i]), self.initiate_grid(features[i]))
