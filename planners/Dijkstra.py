@@ -26,7 +26,7 @@ t1 = Thread(target=display)
 def dijkstra_search(graph, start, goal, visualize=True):
     global img
     if visualize:
-        img = np.ones([graph.width+100, graph.height+100, 3])*255
+        img = np.ones([graph.width+100, graph.height+100, 3]) * 255
         for i in graph.walls:
             img[i[0], i[1]] = (0, 0, 0)
         #img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
