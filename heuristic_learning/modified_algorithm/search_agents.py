@@ -52,7 +52,7 @@ class BatchSearchAgent(SearchAgent):
         self.goal = goal
         self.base_heuristic = base_heuristic
         self.feature_map = feature_map
-        self.frontier.put(start, 0 + self.base_heuristic(start, goal))
+        self.frontier.put(start, 0 + self.base_heuristic(start, goal),self.base_heuristic(start, goal), 0 )
         self.a_star = a_star
         self.came_from = {}
         self.cost_so_far = {}
@@ -102,7 +102,7 @@ class BatchSearchAgent(SearchAgent):
                         # print edge_cost + h_x_dash - h_x
                     
                     self.cost_so_far[next] = new_cost
-                    self.frontier.put(next, priority)
+                    self.frontier.put(next, priority, h_x_dash, new_cost)
                     self.came_from[next] = current
                 time.sleep(0.01)
             return done, current, best_error, best_feature_vec
@@ -116,7 +116,7 @@ class OnlineSearchAgent(SearchAgent):
         self.goal = goal
         self.base_heuristic = base_heuristic
         self.feature_map = feature_map
-        self.frontier.put(start, 0 + self.base_heuristic(start, self.goal))
+        self.frontier.put(start, 0 + self.base_heuristic(start, self.goal), self.base_heuristic(start, self.goal))
         self.came_from = {}
         self.cost_so_far = {}
         self.a_star = a_star
@@ -196,7 +196,7 @@ class OnlineSearchAgent(SearchAgent):
                     else:
                         next_priority = h_x_dash_cap
                     
-                    self.frontier.put(next, next_priority)
+                    self.frontier.put(next, next_priority, h_x_dash_cap, new_cost)
                     self.cost_so_far[next] = new_cost
                     self.came_from[next] = current
             time.sleep(0.1)
@@ -217,7 +217,7 @@ class TestAgent(SearchAgent):
         self.came_from = {}
         self.cost_so_far = {}
         self.a_star = a_star
-        self.frontier.put(start, 0 + self.base_heuristic(start, goal))
+        self.frontier.put(start, 0 + self.base_heuristic(start, goal), self.base_heuristic(start, goal), 0)
         self.cost_so_far[start] = 0
         self.came_from[start] = None
        
@@ -266,7 +266,7 @@ class TestAgent(SearchAgent):
                         best_error = SearchAgent.getEDot(edge_cost, h_x, h_x_dash)
 
                     self.cost_so_far[next] = new_cost
-                    self.frontier.put(next, priority)
+                    self.frontier.put(next, priority, h_x_dash_cap, new_cost)
                     self.came_from[next] = current
                 time.sleep(0.01)
             return done, current, best_error

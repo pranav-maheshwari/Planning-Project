@@ -13,9 +13,9 @@ class PriorityQueue:
     def empty(self):
         return len(self.elements) == 0
     
-    def put(self, item, priority):
-        heapq.heappush(self.elements, (priority, item))
+    def put(self, item, priority, tie_break, tie_break_2):
+        heapq.heappush(self.elements, (priority, tie_break, tie_break_2, item))
     
     def get(self):
     	e = heapq.heappop(self.elements)
-        return e[1], e[0]
+        return e[3], e[0]

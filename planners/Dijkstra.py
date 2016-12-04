@@ -29,7 +29,6 @@ def dijkstra_search(graph, start, goal, visualize=True):
         img = np.ones([graph.width+100, graph.height+100, 3]) * 255
         for i in graph.walls:
             img[i[0], i[1]] = (0, 0, 0)
-        #img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
         t1.start()
     frontier = PriorityQueue()
     frontier.put(start, 0)

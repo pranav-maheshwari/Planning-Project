@@ -194,6 +194,7 @@ class Learner:
         graph = planning_prob[0]
         start_list = planning_prob[1]
         goal_list = planning_prob[2]
+        print graph.walls
         self.img = np.ones([graph.width, graph.height, 3]) * 255
         for start in start_list:
             self.img[start[0], start[1]] = (0, 255, 0)

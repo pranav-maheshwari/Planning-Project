@@ -10,6 +10,7 @@ import feature_extract
 from planners.Dijkstra import *
 from graphs.HeuristicFunctions import *
 
+
 def getEnvironmentDatabase(connectivity="four_connected", obstacles="soft", obstacle_cost=10, num_env_to_load=1, preloaded=True, dijkstra=True, need_additional = True, need_normalized = True):
     planning_problems = []
     if preloaded:
