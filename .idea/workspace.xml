@@ -2,7 +2,310 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d3c38edd-6660-49d7-ae3a-fc046fca3efa" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/0.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/0.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/1.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/10.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/10.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/10.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/11.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/11.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/11.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/12.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/12.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/12.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/13.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/13.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/13.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/14.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/14.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/14.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/15.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/15.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/15.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/16.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/16.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/16.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/17.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/17.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/17.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/18.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/18.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/18.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/19.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/19.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/19.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/2.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/20.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/20.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/20.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/21.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/21.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/21.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/22.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/22.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/22.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/23.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/23.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/23.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/24.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/24.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/24.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/25.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/25.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/25.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/26.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/26.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/26.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/27.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/27.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/27.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/28.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/28.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/28.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/29.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/29.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/29.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/3.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/30.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/30.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/30.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/31.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/31.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/31.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/32.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/32.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/32.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/33.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/33.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/33.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/34.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/34.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/34.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/35.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/35.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/35.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/36.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/36.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/36.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/37.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/37.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/37.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/38.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/38.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/38.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/39.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/39.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/39.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/4.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/4.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/40.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/40.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/40.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/41.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/41.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/41.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/42.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/42.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/42.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/43.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/43.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/43.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/44.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/44.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/44.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/45.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/45.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/45.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/46.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/46.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/46.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/47.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/47.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/47.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/48.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/48.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/48.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/49.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/49.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/49.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/5.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/5.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/50.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/50.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/50.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/51.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/51.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/51.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/52.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/52.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/52.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/53.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/53.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/53.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/54.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/54.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/54.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/55.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/55.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/55.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/56.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/56.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/56.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/57.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/57.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/57.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/58.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/58.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/58.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/59.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/59.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/59.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/6.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/6.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/60.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/60.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/60.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/61.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/61.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/61.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/62.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/62.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/62.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/63.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/63.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/63.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/64.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/64.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/64.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/65.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/65.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/65.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/66.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/66.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/66.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/67.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/67.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/67.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/68.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/68.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/68.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/69.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/69.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/69.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/7.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/7.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/70.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/70.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/70.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/71.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/71.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/71.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/72.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/72.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/72.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/73.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/73.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/73.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/74.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/74.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/74.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/75.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/75.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/75.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/76.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/76.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/76.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/77.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/77.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/77.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/78.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/78.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/78.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/79.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/79.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/79.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/8.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/8.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/80.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/80.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/80.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/81.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/81.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/81.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/82.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/82.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/82.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/83.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/83.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/83.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/84.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/84.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/84.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/85.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/85.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/85.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/86.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/86.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/86.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/87.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/87.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/87.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/88.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/88.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/88.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/89.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/89.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/89.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/9.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/9.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/9.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/90.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/90.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/90.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/91.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/91.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/91.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/92.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/92.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/92.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/93.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/93.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/93.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/94.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/94.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/94.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/95.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/95.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/95.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/96.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/96.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/96.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/97.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/97.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/97.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/98.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/98.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/98.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/99.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/99.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/99.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/0.txt" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/0.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/environment.py" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/environment.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/feature_extract.py" afterPath="$PROJECT_DIR$/heuristic_learning/feature_extract.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/supervised_learning/main.py" afterPath="$PROJECT_DIR$/heuristic_learning/supervised_learning/main.py" />
     </list>
     <ignored path="Code.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,14 +348,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="feature_extract.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="feature_extract.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/heuristic_learning/feature_extract.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.64008623">
-              <caret line="75" column="23" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/heuristic_learning/supervised_learning/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="environment.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/heuristic_learning/environment_database/environment.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.71202534">
+              <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -75,15 +398,17 @@
         <option value="$PROJECT_DIR$/environment.py" />
         <option value="$PROJECT_DIR$/planners/Dijkstra.py" />
         <option value="$PROJECT_DIR$/heuristic_learning/environment_database.py" />
+        <option value="$PROJECT_DIR$/heuristic_learning/supervised_learning/main.py" />
         <option value="$PROJECT_DIR$/heuristic_learning/feature_extract.py" />
+        <option value="$PROJECT_DIR$/heuristic_learning/environment_database/environment.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="65" />
-    <option name="y" value="52" />
-    <option name="width" value="1845" />
-    <option name="height" value="1028" />
+    <option name="y" value="24" />
+    <option name="width" value="1855" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -166,6 +491,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="heuristic_learning" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="environment_database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Planning-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Planning-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="examples" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -180,7 +523,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Python.environment">
+  <component name="RunManager" selected="Python.environment (1)">
     <configuration default="false" name="environment" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -194,6 +537,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Code" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/environment.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="environment (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/heuristic_learning/environment_database" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Code" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/heuristic_learning/environment_database/environment.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -320,32 +680,34 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Python.environment" />
+      <item index="1" class="java.lang.String" itemvalue="Python.environment (1)" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.environment" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Python.environment (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Python.environment" />
       </list>
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="ToolWindowManager">
-    <frame x="65" y="52" width="1845" height="1028" extended-state="4" />
+    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12129528" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12117904" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3286004" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329428" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
@@ -362,7 +724,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -386,11 +750,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/heuristic_learning/feature_extract.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64008623">
-          <caret line="75" column="23" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/planners/Dijkstra.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heuristic_learning/environment_database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+          <folding>
+            <element signature="e#22#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heuristic_learning/environment_database/puddle/0.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heuristic_learning/supervised_learning/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heuristic_learning/feature_extract.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heuristic_learning/environment_database/environment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.71202534">
+          <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>

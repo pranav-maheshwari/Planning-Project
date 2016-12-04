@@ -21,19 +21,19 @@ class Feature:
         self.eight_connected = [(-1, 0), (1, 0), (0, 1), (0, -1), (1, 1), (-1, -1), (1, -1), (-1, 1)]
         self.limit_x = size_x
         self.limit_y = size_y
-        self.distance_feature_lookup = [dict()]*count
-        self.gradient_feature_lookup = [dict()]*count
+        self.distance_feature_lookup = [dict()] * count
+        self.gradient_feature_lookup = [dict()] * count
         self.additional_features = additional_features
         n = 1
         if normalize:
-            n = 64
+            n = 128
         if self.additional_features:
             self.feature = defaultdict(not_a_lambda_with_additional)
             if count > 0:
                 for i in range(count):
                     self.distance_feature_lookup[i], self.gradient_feature_lookup[i] = self.BFS(self.initiate_open_list(features[i]), self.initiate_grid(features[i]))
                 for i in self.distance_feature_lookup[0].iterkeys():
-                    self.feature[i] = [(1.0*d[i])/n for d in self.distance_feature_lookup]
+                    self.feature[i] = [(1.0 * d[i]) / n for d in self.distance_feature_lookup]
                 self.feature[i] = self.feature[i] + Manhattan(i, goal)
                 for i in self.feature.iterkeys():
                     temp = [d[i] for d in self.gradient_feature_lookup]

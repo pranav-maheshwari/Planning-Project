@@ -10,7 +10,7 @@ _config = namedtuple('_config', 'res_x res_y type count width depth')
 
 _config.res_x = 64          # Resolution in X axis
 _config.res_y = 64          # Resolution in Y axis
-_config.type = "puddle"     # Map type (trap or bars or puddle)
+_config.type = "bugtrap_environments"     # Map type (trap or bars or puddle)
 _config.count = 2           # Number of bars
 _config.length = 32         # Length of bars
 _config.start = [40, 5]     # Start Position
@@ -76,6 +76,10 @@ class Example:
                 buffer_temp.append(str(k)[1:-1])
             if _config.type == "puddle":
                 buffer_temp.append("count " + str(puddle_count))
+            elif _config.type == "trap":
+                buffer_temp.append("count " + str(3))
+            else:
+                buffer_temp.append("count " + str(_config.count))
             buffer_temp += param[-2:]
             for k in buffer_temp:
                 f.write(k)
