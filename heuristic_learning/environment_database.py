@@ -37,7 +37,7 @@ def getEnvironmentDatabase(connectivity="four_connected", obstacles="soft", obst
             return planning_problems
         except (EOFError, IOError):
                 planning_problems = []
-                print "Reverting to regular computing of environents"
+                print "Reverting to regular computing of environments"
                 pass
     for i in xrange(num_env_to_load):
         const = ""

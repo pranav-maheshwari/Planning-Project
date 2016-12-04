@@ -47,7 +47,7 @@ load_from_pickle = False
 save_to_pickle = True
 need_additional_features = True
 need_normalized_features = False
-preloaded = False
+preloaded = True
 dijkstra = True
 # Get database of environments to run experiments on
 # if not load_from_pickle:
