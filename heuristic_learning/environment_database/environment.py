@@ -76,7 +76,7 @@ class Example:
                 buffer_temp.append(str(k)[1:-1])
             if _config.type == "puddle":
                 buffer_temp.append("count " + str(puddle_count))
-            elif _config.type == "trap":
+            elif _config.type == "bugtrap_environments":
                 buffer_temp.append("count " + str(3))
             else:
                 buffer_temp.append("count " + str(_config.count))
