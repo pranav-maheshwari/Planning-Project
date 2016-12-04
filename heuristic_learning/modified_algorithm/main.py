@@ -25,7 +25,7 @@ batch_train = True
 
 visualize = True
 graph_connectivity = "four_connected"
-num_env_to_load = 101
+num_env_to_load = 1
 swamp_cost = 100
 load_from_pickle = False
 save_to_pickle = True

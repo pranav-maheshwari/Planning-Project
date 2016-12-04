@@ -5,6 +5,9 @@ from collections import defaultdict
 size_y = 64
 size_x = 64
 
+def Manhattan(cell, goal):
+    return np.sum(np.abs(np.array(cell) - np.array(goal)))
+
 def not_a_lambda_with_additional():
     return (size_y+size_x, 0, 0)
 
@@ -12,7 +15,7 @@ def not_a_lambda():
     return (size_y+size_x)
 
 class Feature:
-    def __init__(self, features, size_y, size_x, count, normalize=True, additional_features=True, connectivity="four_connected"):
+    def __init__(self, features, goal, size_y, size_x, count, normalize=True, additional_features=True, connectivity="four_connected"):
         self._connectivity = connectivity
         self.four_connected = [(-1, 0), (1, 0), (0, 1), (0, -1)]
         self.eight_connected = [(-1, 0), (1, 0), (0, 1), (0, -1), (1, 1), (-1, -1), (1, -1), (-1, 1)]
@@ -31,6 +34,7 @@ class Feature:
                     self.distance_feature_lookup[i], self.gradient_feature_lookup[i] = self.BFS(self.initiate_open_list(features[i]), self.initiate_grid(features[i]))
                 for i in self.distance_feature_lookup[0].iterkeys():
                     self.feature[i] = [(1.0*d[i])/n for d in self.distance_feature_lookup]
+                self.feature[i] = self.feature[i] + Manhattan(i, goal)
                 for i in self.feature.iterkeys():
                     temp = [d[i] for d in self.gradient_feature_lookup]
                     self.feature[i] = tuple(self.feature[i] + sum(temp, []))
@@ -40,7 +44,9 @@ class Feature:
                 for i in range(count):
                     self.distance_feature_lookup[i] = self.BFS(self.initiate_open_list(features[i]), self.initiate_grid(features[i]))
                 for i in self.distance_feature_lookup[0].iterkeys():
-                    self.feature[i] = tuple((1.0*d[i])/n for d in self.distance_feature_lookup)
+                    self.feature[i] = [(1.0*d[i])/n for d in self.distance_feature_lookup]
+                self.feature[i] = tuple(self.feature[i] + Manhattan(i, goal))
+
 
 
     def initiate_open_list(self, feature):

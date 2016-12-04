@@ -120,7 +120,7 @@ class OnlineSearchAgent(SearchAgent):
         self.came_from = {}
         self.cost_so_far = {}
         self.a_star = a_star
-        self.regressor = linear_model.SGDRegressor(alpha=0.03, verbose = 0, n_iter = 5, fit_intercept = True, warm_start = True)
+        self.regressor = linear_model.SGDRegressor(alpha=0.003, verbose = 0, n_iter = 5, fit_intercept = True, warm_start = True)
         self.came_from[start] = None
         self.cost_so_far[start] = 0
         # self.depth_so_far[start] = 0
