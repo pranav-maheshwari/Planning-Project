@@ -73,18 +73,26 @@ def linearRegressionLearner(X, Y, batch_size, ita, training_epochs, num_test):
     # train_X, test_X = preprocessing(train_X, test_X)
     regr = linear_model.LinearRegression()
     regr.fit(train_X, train_Y)
+<<<<<<< HEAD
     # print('Coefficients: \n', regr.coef_)
+=======
+    print('Coefficients: \n', regr.coef_)
+    print('Bias: \n', regr.intercept_)
+>>>>>>> 16a049cf58cd3325dbc79d29ad70214501110745
     # The mean squared error
     print("Mean squared error: %.2f"
           % np.mean((regr.predict(test_X) - test_Y) ** 2))
     # Explained variance score: 1 is perfect prediction
     print('Variance score: %.2f' % regr.score(test_X, test_Y))
     # Plot outputs
+<<<<<<< HEAD
 
     """
     plt.scatter(test_X, test_Y, color='black')
     plt.plot(test_X, regr.predict(test_X), color='blue',
              linewidth=3)
+=======
+>>>>>>> 16a049cf58cd3325dbc79d29ad70214501110745
     # plt.scatter(test_X, test_Y, color='black')
     # plt.plot(test_X, regr.predict(test_X), color='blue',
     #          linewidth=3)
@@ -92,10 +100,15 @@ def linearRegressionLearner(X, Y, batch_size, ita, training_epochs, num_test):
     # plt.xticks(())
     # plt.yticks(())
 
+<<<<<<< HEAD
     plt.show()
     """
     return regr.coef_, regr.intercept_
 
+=======
+    # plt.show()
+    return regr.coef_, regr.intercept_
+>>>>>>> 16a049cf58cd3325dbc79d29ad70214501110745
 
 
 # Stochastic Gradient Descent Learner
@@ -164,6 +177,7 @@ def getData(env_database):
     return feature_array, label_array
 
 
+<<<<<<< HEAD
 
 def run_weights_in_astar(planning_problem, weights, bias, heuristic_fn, a_star = True):
     graph = planning_problem[0]
@@ -215,3 +229,4 @@ print "Mean squared error: ", sum_of_errors / (len(X) - 122880)
 _, _, num_expansions = run_weights_in_astar(test_env_database[98], weights, bias, Manhattan, False)
 
 print num_expansions
+

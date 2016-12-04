@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d3c38edd-6660-49d7-ae3a-fc046fca3efa" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data_structures/PriorityQueue.py" afterPath="$PROJECT_DIR$/data_structures/PriorityQueue.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database.py" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/modified_algorithm/main.py" afterPath="$PROJECT_DIR$/heuristic_learning/modified_algorithm/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/modified_algorithm/modified_learner.py" afterPath="$PROJECT_DIR$/heuristic_learning/modified_algorithm/modified_learner.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/modified_algorithm/search_agents.py" afterPath="$PROJECT_DIR$/heuristic_learning/modified_algorithm/search_agents.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/supervised_learning/main.py" afterPath="$PROJECT_DIR$/heuristic_learning/supervised_learning/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/planners/Dijkstra.py" afterPath="$PROJECT_DIR$/planners/Dijkstra.py" />
     </list>
     <ignored path="Code.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -67,9 +60,11 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/heuristic_learning/supervised_learning/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.1820083">
-              <caret line="54" column="20" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
-              <folding />
+            <state vertical-scroll-proportion="0.86820084">
+              <caret line="231" column="0" selection-start-line="231" selection-start-column="0" selection-end-line="231" selection-end-column="0" />
+              <folding>
+                <element signature="e#22#32#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -92,9 +87,9 @@
         <option value="$PROJECT_DIR$/environment.py" />
         <option value="$PROJECT_DIR$/heuristic_learning/environment_database/environment.py" />
         <option value="$PROJECT_DIR$/heuristic_learning/feature_extract.py" />
-        <option value="$PROJECT_DIR$/heuristic_learning/supervised_learning/main.py" />
         <option value="$PROJECT_DIR$/heuristic_learning/environment_database.py" />
         <option value="$PROJECT_DIR$/planners/Dijkstra.py" />
+        <option value="$PROJECT_DIR$/heuristic_learning/supervised_learning/main.py" />
       </list>
     </option>
   </component>
@@ -472,7 +467,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
-          <folding />
+          <folding>
+            <element signature="e#22#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -516,7 +513,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
-          <folding />
+          <folding>
+            <element signature="e#22#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -601,9 +600,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/heuristic_learning/supervised_learning/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.1820083">
-          <caret line="54" column="20" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
-          <folding />
+        <state vertical-scroll-proportion="0.86820084">
+          <caret line="231" column="0" selection-start-line="231" selection-start-column="0" selection-end-line="231" selection-end-column="0" />
+          <folding>
+            <element signature="e#22#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
