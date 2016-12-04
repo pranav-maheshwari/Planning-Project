@@ -2,9 +2,107 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d3c38edd-6660-49d7-ae3a-fc046fca3efa" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database.py" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA0.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA0.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA1.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA1.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA10.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA10.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA11.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA11.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA12.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA12.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA13.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA13.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA14.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA14.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA15.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA15.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA16.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA16.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA17.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA17.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA18.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA18.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA19.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA19.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA2.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA2.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA20.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA20.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA21.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA21.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA22.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA22.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA23.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA23.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA24.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA24.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA25.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA25.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA26.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA26.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA27.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA27.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA28.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA28.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA29.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA29.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA3.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA3.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA30.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA30.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA31.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA31.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA32.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA32.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA33.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA33.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA34.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA34.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA35.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA35.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA36.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA36.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA37.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA37.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA38.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA38.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA39.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA39.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA4.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA4.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA40.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA40.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA41.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA41.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA42.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA42.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA43.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA43.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA44.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA44.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA45.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA45.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA46.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA46.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA47.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA47.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA48.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA48.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA49.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA49.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA5.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA5.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA50.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA50.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA51.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA51.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA52.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA52.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA53.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA53.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA54.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA54.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA55.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA55.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA56.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA56.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA57.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA57.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA58.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA58.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA59.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA59.p" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA6.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA6.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA60.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA60.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA61.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA61.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA62.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA62.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA63.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA63.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA64.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA64.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA65.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA65.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA66.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA66.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA67.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA67.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA68.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA68.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA69.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA69.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA7.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA7.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA70.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA70.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA71.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA71.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA72.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA72.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA73.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA73.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA74.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA74.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA75.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA75.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA76.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA76.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA77.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA77.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA78.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA78.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA79.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA79.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA8.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA8.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA80.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA80.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA81.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA81.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA82.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA82.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA83.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA83.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA84.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA84.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA85.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA85.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA86.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA86.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA87.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA87.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA88.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA88.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA89.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA89.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA9.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA9.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA90.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA90.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA91.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA91.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA92.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA92.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA93.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA93.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA94.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA94.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA95.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA95.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA96.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA96.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA97.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA97.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA98.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA98.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA99.p" afterPath="$PROJECT_DIR$/heuristic_learning/environment_database/bugtrap_environments/NA99.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/feature_extract.py" afterPath="$PROJECT_DIR$/heuristic_learning/feature_extract.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heuristic_learning/supervised_learning/main.py" afterPath="$PROJECT_DIR$/heuristic_learning/supervised_learning/main.py" />
     </list>
     <ignored path="Code.iws" />
@@ -52,7 +150,7 @@
         <entry file="file://$PROJECT_DIR$/heuristic_learning/feature_extract.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="59" column="45" selection-start-line="59" selection-start-column="45" selection-end-line="59" selection-end-column="45" />
+              <caret line="55" column="23" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -63,8 +161,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/heuristic_learning/supervised_learning/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.541841">
-              <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.7364017">
+              <caret line="178" column="2" selection-start-line="178" selection-start-column="2" selection-end-line="178" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -88,9 +186,9 @@
         <option value="$PROJECT_DIR$/environment.py" />
         <option value="$PROJECT_DIR$/planners/Dijkstra.py" />
         <option value="$PROJECT_DIR$/heuristic_learning/environment_database/environment.py" />
+        <option value="$PROJECT_DIR$/heuristic_learning/environment_database.py" />
         <option value="$PROJECT_DIR$/heuristic_learning/feature_extract.py" />
         <option value="$PROJECT_DIR$/heuristic_learning/supervised_learning/main.py" />
-        <option value="$PROJECT_DIR$/heuristic_learning/environment_database.py" />
       </list>
     </option>
   </component>
@@ -575,16 +673,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/heuristic_learning/feature_extract.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="45" selection-start-line="59" selection-start-column="45" selection-end-line="59" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/heuristic_learning/environment_database.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -595,10 +683,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/heuristic_learning/feature_extract.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="55" column="23" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/heuristic_learning/supervised_learning/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.541841">
-          <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.7364017">
+          <caret line="178" column="2" selection-start-line="178" selection-start-column="2" selection-end-line="178" selection-end-column="2" />
           <folding />
         </state>
       </provider>

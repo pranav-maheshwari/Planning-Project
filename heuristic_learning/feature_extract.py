@@ -1,6 +1,7 @@
 import Queue
 import numpy as np
 from collections import defaultdict
+import math
 
 size_y = 64
 size_x = 64
@@ -10,12 +11,17 @@ def Manhattan(cell, goal):
     return [np.sum(np.abs(np.array(cell) - np.array(goal)))]
 
 
+def Angle(cell, goal):
+    temp = np.array(goal) - np.array(cell)
+    return [math.atan2(temp[0], temp[1])]
+
+
 def not_a_lambda_with_additional():
-    return (size_y+size_x, 0, 0)
+    return (size_y + size_x, 0, 0)
 
 
 def not_a_lambda():
-    return (size_y+size_x)
+    return (size_y + size_x)
 
 
 class Feature:
@@ -37,11 +43,17 @@ class Feature:
                 for i in range(count):
                     self.distance_feature_lookup[i], self.gradient_feature_lookup[i] = self.BFS(self.initiate_open_list(features[i]), self.initiate_grid(features[i]))
                 for i in self.distance_feature_lookup[0].iterkeys():
+                    temp1 = [(1.0 * d[i]) / n for d in self.distance_feature_lookup]
+                    temp2 = [d[i] for d in self.gradient_feature_lookup]
+                    index = temp1.index(min(temp1))
+                    self.feature[i] = [temp1[index]] + temp2[index] + Manhattan(i, goal) + Angle(i, goal)
+                    """
                     self.feature[i] = [(1.0 * d[i]) / n for d in self.distance_feature_lookup]
-                    self.feature[i] = self.feature[i] + Manhattan(i, goal)
+                    self.feature[i] = self.feature[i] + Manhattan(i, goal) + Angle(i, goal)
                 for i in self.feature.iterkeys():
                     temp = [d[i] for d in self.gradient_feature_lookup]
                     self.feature[i] = tuple(self.feature[i] + sum(temp, []))
+                    """
         else:
             self.feature = defaultdict(not_a_lambda)
             if count > 0:
@@ -49,7 +61,7 @@ class Feature:
                     self.distance_feature_lookup[i] = self.BFS(self.initiate_open_list(features[i]), self.initiate_grid(features[i]))
                 for i in self.distance_feature_lookup[0].iterkeys():
                     self.feature[i] = [(1.0 * d[i]) / n for d in self.distance_feature_lookup]
-                    self.feature[i] = tuple(self.feature[i] + Manhattan(i, goal))
+                    self.feature[i] = tuple(self.feature[i] + Manhattan(i, goal)) #+ Angle(i, goal))
 
     def initiate_open_list(self, feature):
         open_list = list()

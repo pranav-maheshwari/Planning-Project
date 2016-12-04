@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 from sklearn import neural_network
 import numpy as np
+import math
 
 print("Packs loaded")
 import operator
@@ -47,7 +48,7 @@ load_from_pickle = False
 save_to_pickle = True
 need_additional_features = True
 need_normalized_features = False
-preloaded = True
+preloaded = False
 dijkstra = True
 # Get database of environments to run experiments on
 # if not load_from_pickle:
@@ -72,13 +73,14 @@ def linearRegressionLearner(X, Y, batch_size, ita, training_epochs, num_test):
     # train_X, test_X = preprocessing(train_X, test_X)
     regr = linear_model.LinearRegression(normalize=True)
     regr.fit(train_X, train_Y)
-    print('Coefficients: \n', regr.coef_)
+    # print('Coefficients: \n', regr.coef_)
     # The mean squared error
     print("Mean squared error: %.2f"
           % np.mean((regr.predict(test_X) - test_Y) ** 2))
     # Explained variance score: 1 is perfect prediction
     print('Variance score: %.2f' % regr.score(test_X, test_Y))
     # Plot outputs
+    """
     plt.scatter(test_X, test_Y, color='black')
     plt.plot(test_X, regr.predict(test_X), color='blue',
              linewidth=3)
@@ -87,7 +89,8 @@ def linearRegressionLearner(X, Y, batch_size, ita, training_epochs, num_test):
     plt.yticks(())
 
     plt.show()
-
+    """
+    return regr.coef_, regr.intercept_
 
 # Stochastic Gradient Descent Learner
 def sgdLearner(X, Y, batch_size, ita, training_epochs, num_test):
@@ -173,6 +176,12 @@ def getData(env_database):
 
 X, Y = getData(test_env_database)
 
-print X, Y
+# print X, Y
 
-linearRegressionLearner(X, Y, batch_size, learning_rate, training_epochs, NUM_TEST)
+print linearRegressionLearner(X, Y, batch_size, learning_rate, training_epochs, NUM_TEST)
+
+sum_of_errors = 0
+for i in range(122880, len(X)):
+    sum_of_errors += math.pow(X[i][3] - Y[i], 2)
+
+print "Mean squared error: ", sum_of_errors / (len(X) - 122880)
