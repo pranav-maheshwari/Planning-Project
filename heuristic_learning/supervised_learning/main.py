@@ -11,7 +11,7 @@ from environment_database import *
 from graphs.HeuristicFunctions import *
 from sklearn import linear_model
 import matplotlib.pyplot as plt
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, Normalizer
 from sklearn import neural_network
 import numpy as np
 import math
@@ -47,9 +47,9 @@ num_env_to_load = 100
 swamp_cost = 100
 load_from_pickle = False
 save_to_pickle = True
-need_additional_features = False
+need_additional_features = True
 need_normalized_features = False
-preloaded = False
+preloaded = True
 dijkstra = True
 # Get database of environments to run experiments on
 # if not load_from_pickle:
@@ -136,11 +136,11 @@ def mlpRegressionLearner(X, Y, batch_size, ita, training_epochs, num_test):
     train_Y = np.asarray(Y[:-num_test])
     test_X = np.asarray(X[-num_test:])
     test_Y = np.asarray(Y[-num_test:])
-    # train_X, test_X = preprocessing(train_X, test_X)
+    train_X, test_X = normalize(train_X, test_X)
 
     # regr = neural_network.MLPRegressor(hidden_layer_sizes=(20), activation='relu', solver='adam', alpha='0.0001',
     #                                    learning_rate='adaptive', learning_rate_init=0.1, warm_start=True)
-    regr = neural_network.MLPRegressor(hidden_layer_sizes=(30), activation='relu', solver='adam', alpha=0.0001, batch_size='auto', learning_rate='constant',\
+    regr = neural_network.MLPRegressor(hidden_layer_sizes=(30, 30, 20), activation='relu', solver='adam', alpha=0.0001, batch_size='auto', learning_rate='constant',\
                                         learning_rate_init=0.001, power_t=0.5, max_iter=200, shuffle=True, random_state=None, tol=0.0001, verbose=True,\
                                          warm_start=False, momentum=0.9, nesterovs_momentum=True, early_stopping=False, validation_fraction=0.1, beta_1=0.9, beta_2=0.999, epsilon=1e-08)
     print train_X.shape
@@ -159,6 +159,13 @@ def preprocessing(X_train, X_test):
     scaler.fit(X_train)  # Don't cheat - fit only on training data
     X_train = scaler.transform(X_train)
     X_test = scaler.transform(X_test)  # apply same transformation to test data
+    return X_train, X_test
+
+def normalize(X_train, X_test):
+    norm = Normalizer()
+    norm.fit(X_train)
+    X_train = norm.transform(X_train)
+    X_test = norm.transform(X_test)  # apply same transformation to test data
     return X_train, X_test
 
 
@@ -248,6 +255,7 @@ def run_weights_in_astar_mlp(planning_problem, regr, Manhattan, a_star = False):
     frontier = PriorityQueue()
     came_from = {}
     cost_so_far = {}
+    closed = set()
     if a_star:
         frontier.put(start, 0 + Manhattan(start, goal), Manhattan(start, goal), 0)
     else:
@@ -262,23 +270,27 @@ def run_weights_in_astar_mlp(planning_problem, regr, Manhattan, a_star = False):
             break
         img[current[0]][current[1]] = (255, 0, 0)
         neighbors = graph.neighbors(current)
+        closed.add(current)
         for next in neighbors:
             new_cost = cost_so_far[current] + graph.cost(current, next)
             if next not in cost_so_far or new_cost < cost_so_far[next]:
                 feature_vec = feature_map[next]
                 if not a_star:
-                    # print "Here"
-                    priority = new_cost + regr.predict(feature_vec)
+                    priority = regr.predict(feature_vec)
+                    print priority
+                    if next not in closed: 
+                        frontier.put(next, priority, regr.predict(feature_vec), new_cost)
                 else:
-                    # print "in a star"
                     priority = new_cost + Manhattan(next, goal)
+                    frontier.put(next, priority, regr.predict(feature_vec), new_cost)
                 cost_so_far[next] = new_cost
                 frontier.put(next, priority, regr.predict(feature_vec), new_cost)
                 came_from[next] = current
         time.sleep(0.01)
     return came_from, cost_so_far, num_expansions
 
-           
+
+         
 X, Y = getData(test_env_database)
 
 # print X, Y
