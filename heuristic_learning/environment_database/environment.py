@@ -10,7 +10,7 @@ _config = namedtuple('_config', 'res_x res_y type count width depth')
 
 _config.res_x = 64          # Resolution in X axis
 _config.res_y = 64          # Resolution in Y axis
-_config.type = "bars"     # Map type (trap or bars or puddle)
+_config.type = "bugtrap_environments"     # Map type (trap or bars or puddle)
 _config.count = 3           # Number of bars
 _config.start = [62, 2]     # Start Position
 _config.goal = [2, 62]     # Goal Position
@@ -60,7 +60,7 @@ class Example:
                 print "Limits", _config.boundaries_x[0]+1, _config.boundaries_x[1] - depth - _config.thickness - 1
                 top_left_x = random.randint(_config.boundaries_x[0]+1, _config.boundaries_x[1] - depth - _config.thickness - 1)
                 print top_left_x
-                top_left_y = random.randint(0, _config.res_y - 2*_config.thickness - width)
+                top_left_y = random.randint(0, _config.res_y - 2*_config.thickness - width - 1)
                 walls = [[top_left_x, top_left_y, top_left_x + depth + _config.thickness, top_left_y + _config.thickness], [top_left_x + depth, top_left_y + _config.thickness, top_left_x + depth + _config.thickness, top_left_y + width + _config.thickness], [top_left_x, top_left_y + width + _config.thickness, top_left_x + depth + _config.thickness, top_left_y + width + 2*_config.thickness], [top_left_x, top_left_y + _config.thickness, top_left_x + _config.thickness, top_left_y + width + _config.thickness]]
                 walls.pop(random.randint(2, 3))
                 if disp:

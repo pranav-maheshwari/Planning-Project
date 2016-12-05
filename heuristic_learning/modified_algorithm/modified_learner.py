@@ -13,7 +13,7 @@ from search_agents import BatchSearchAgent, OnlineSearchAgent, TestAgent
 from utils.planner_utils import *
 from sklearn import linear_model
 
-print("Import done")
+("Import done")
 
 
 class Learner:
@@ -109,7 +109,7 @@ class Learner:
                 error_database.append(error_target)  
         print("Num Expansions A*", t)
         print("Initiate learning")
-        regressor = linear_model.SGDRegressor(alpha = 0.03, verbose = 0, n_iter = 5, fit_intercept = True)#, average=True)
+        regressor = linear_model.SGDRegressor(alpha = 0.003, verbose = 0, n_iter = 5, fit_intercept = True)#, average=True)
         # regressor = linear_model.LinearRegression()
 
         # print error_database
@@ -118,13 +118,13 @@ class Learner:
             check = len(feature_database[0])
         except TypeError:
             feature_database = [[i] for i  in feature_database]
-        # print feature_database
+        print feature_database
         # print np.asarray(error_database).shape
         # print np.asarray(feature_database).shape
         regressor.fit(feature_database, error_database)# coef_init= [0]*len(feature_database[0]))
         # print regressor.coef_
         # print regressor.intercept_
-        return (regressor.coef_, 0) #[NOTE: Take bias terms into account as well]
+        return (regressor.coef_, regressor.intercept_) #[NOTE: Take bias terms into account as well]
 
     def test_weights_in_env(self, w_b, planning_prob):
         if self.visualize:
@@ -169,7 +169,7 @@ class Learner:
         goals_list = planning_prob[2]
         feature_map = planning_prob[3]
         t = 0
-        s = OnlineSearchAgent(graph, start_list[0], goals_list[0], self.base_heuristic, feature_map)
+        s = OnlineSearchAgent(graph, start_list[0], goals_list[0], self.base_heuristic, feature_map, True)
         # Reset episode database before start of episode
         print("Start New Episode")
         while t < self.episode_length:
@@ -194,7 +194,7 @@ class Learner:
         graph = planning_prob[0]
         start_list = planning_prob[1]
         goal_list = planning_prob[2]
-        print graph.walls
+        
         self.img = np.ones([graph.width, graph.height, 3]) * 255
         for start in start_list:
             self.img[start[0], start[1]] = (0, 255, 0)
