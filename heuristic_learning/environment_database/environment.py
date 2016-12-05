@@ -10,14 +10,14 @@ _config = namedtuple('_config', 'res_x res_y type count width depth')
 
 _config.res_x = 64          # Resolution in X axis
 _config.res_y = 64          # Resolution in Y axis
-_config.type = "bugtrap_environments"     # Map type (trap or bars or puddle)
-_config.count = 2           # Number of bars
-_config.length = 32         # Length of bars
-_config.start = [40, 5]     # Start Position
-_config.goal = [40, 55]     # Goal Position
+_config.type = "bars"     # Map type (trap or bars or puddle)
+_config.count = 3           # Number of bars
+_config.start = [62, 2]     # Start Position
+_config.goal = [2, 62]     # Goal Position
 _config.thickness = 5       # Thickness of walls
-_config.depth = abs(_config.goal[1] - _config.start[1] - _config.thickness - 2)         # Max Width of trap
-_config.width = 32          # Max Depth of trap
+_config.depth = abs(_config.goal[1] - _config.start[1] - _config.thickness - 2)         # Max Depth of trap
+_config.length = int(0.66*abs(_config.goal[1] - _config.start[1] - _config.thickness - 2))          # Length of bars
+_config.width = 32          # Max Width of trap
 _config.puddle_size = 30    # Max puddle size
 _config.puddle_count = 10   # Max number of puddles
 _config.boundaries_x = sorted([_config.start[1], _config.goal[1]])                      # Region occupied by bars or trap
@@ -35,11 +35,20 @@ class Example:
                 self.output[_config.goal[0]][_config.goal[1]] = 0
             if _config.type == "bars":
                 walls = list()
-                for k in range(0, _config.count):
-                    length = max(3*_config.thickness, int(random.random()*_config.length))
-                    x = random.randint(_config.boundaries_x[0], _config.boundaries_x[1])
-                    y = random.randint(0, _config.res_y - length)
-                    walls.append([x, y, x + _config.thickness, y + length])
+                if random.random() > 0.5:
+                    span = int((_config.boundaries_x[1] - _config.boundaries_x[0])/_config.count)
+                    for k in range(0, _config.count):
+                        length = max(3*_config.thickness, int(random.random()*_config.length))
+                        x = random.randint(_config.boundaries_x[0] + k*span + 1, _config.boundaries_x[0] + (k+1)*span - _config.thickness - 1)
+                        y = random.randint(_config.boundaries_y[0] + 1, _config.boundaries_y[1] - length - 1)
+                        walls.append([x, y, x + _config.thickness, y + length])
+                else:
+                    span = int((_config.boundaries_y[1] - _config.boundaries_y[0])/_config.count)
+                    for k in range(0, _config.count):
+                        length = max(3*_config.thickness, int(random.random()*_config.length))
+                        x = random.randint(_config.boundaries_x[0] + 1, _config.boundaries_x[1] - length - 1)
+                        y = random.randint(_config.boundaries_y[0] + k*span + 1, _config.boundaries_y[0] + (k+1)*span - _config.thickness - 1)
+                        walls.append([x, y, x + length, y + _config.thickness])
                 if disp:
                     for k in walls:
                         cv2.rectangle(self.output, tuple(k[0:2]), tuple(k[2:]), (0, 0, 0), -1)
@@ -53,7 +62,7 @@ class Example:
                 print top_left_x
                 top_left_y = random.randint(0, _config.res_y - 2*_config.thickness - width)
                 walls = [[top_left_x, top_left_y, top_left_x + depth + _config.thickness, top_left_y + _config.thickness], [top_left_x + depth, top_left_y + _config.thickness, top_left_x + depth + _config.thickness, top_left_y + width + _config.thickness], [top_left_x, top_left_y + width + _config.thickness, top_left_x + depth + _config.thickness, top_left_y + width + 2*_config.thickness], [top_left_x, top_left_y + _config.thickness, top_left_x + _config.thickness, top_left_y + width + _config.thickness]]
-                walls.pop(random.randint(0, 3))
+                walls.pop(random.randint(2, 3))
                 if disp:
                     for k in walls:
                         cv2.rectangle(self.output, tuple(k[0:2]), tuple(k[2:]), (0, 0, 0), -1)
@@ -107,4 +116,4 @@ def static_strings():
     return output
 
 parameters = static_strings()
-test = Example(100, parameters, True)
+test = Example(2000, parameters, True)
