@@ -268,7 +268,7 @@ def run_weights_in_astar_mlp(planning_problem, regr, Manhattan, a_star = False):
                 feature_vec = feature_map[next]
                 if not a_star:
                     # print "Here"
-                    priority = regr.predict(feature_vec)
+                    priority = new_cost + regr.predict(feature_vec)
                 else:
                     # print "in a star"
                     priority = new_cost + Manhattan(next, goal)
