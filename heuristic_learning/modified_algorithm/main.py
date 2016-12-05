@@ -30,7 +30,7 @@ swamp_cost = 100
 load_from_pickle = False
 save_to_pickle = True
 need_additional_features = False
-need_normalized_features = True
+need_normalized_features = False
 preloaded = True
 dijkstra = True
 #Get database of environments to run experiments on
@@ -41,18 +41,7 @@ test_env_database = getEnvironmentDatabase(graph_connectivity, "soft", swamp_cos
 # else:
 	# test_env_database = pickle.load( open( "save.p", "rb" ))
 
-l = Learner(total_episodes, \
-            episode_length, \
-            learning_rate, \
-            test_env_database, \
-            seed, \
-            base_heuristic, \
-            include_terminal, \
-            visualize)
-
-l.learn_batch_mode()
-
-# l2 = Learner(total_episodes, \
+# l = Learner(total_episodes, \
 #             episode_length, \
 #             learning_rate, \
 #             test_env_database, \
@@ -61,4 +50,15 @@ l.learn_batch_mode()
 #             include_terminal, \
 #             visualize)
 
-# l2.learn_online_mode()
+# l.learn_batch_mode()
+
+l2 = Learner(total_episodes, \
+            episode_length, \
+            learning_rate, \
+            test_env_database, \
+            seed, \
+            base_heuristic, \
+            include_terminal, \
+            visualize)
+
+l2.learn_online_mode()

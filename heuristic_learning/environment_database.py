@@ -49,7 +49,7 @@ def getEnvironmentDatabase(connectivity="four_connected", obstacles="soft", obst
         feature_extract.size_y = height
         feature_extract.size_x = width
         g = env_to_graph(start_list, goals_list, width, height, walls, connectivity, obstacles, obstacle_cost)
-        feature_obj = feature_extract.Feature(features, goals_list[0], height, width, count, need_normalized, need_additional, connectivity)
+        feature_obj = feature_extract.Feature(features, goals_list[0], height, width, count, need_normalized, need_additional)
         feature_map = feature_obj.get_feature()
         dijkstra_feature = []
         if dijkstra:

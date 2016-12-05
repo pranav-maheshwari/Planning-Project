@@ -46,7 +46,7 @@ class Feature:
                     temp1 = [(1.0 * d[i]) / n for d in self.distance_feature_lookup]
                     temp2 = [d[i] for d in self.gradient_feature_lookup]
                     index = temp1.index(min(temp1))
-                    self.feature[i] = [temp1[index]] + temp2[index] + Manhattan(i, goal) + Angle(i, goal)
+                    self.feature[i] = [temp1[index], math.atan2(temp2[index][0], temp2[index][1])] + Manhattan(i, goal) + Angle(i, goal)
                     """
                     self.feature[i] = [(1.0 * d[i]) / n for d in self.distance_feature_lookup]
                     self.feature[i] = self.feature[i] + Manhattan(i, goal) + Angle(i, goal)

@@ -51,12 +51,12 @@ class Example:
                 print "Limits", _config.boundaries_x[0]+1, _config.boundaries_x[1] - depth - _config.thickness - 1
                 top_left_x = random.randint(_config.boundaries_x[0]+1, _config.boundaries_x[1] - depth - _config.thickness - 1)
                 print top_left_x
-                top_left_y = random.randint(0, _config.res_y - 2*_config.thickness - width)
+                top_left_y = random.randint(0, _config.res_y - 2*_config.thickness - width - 1)
                 walls = [[top_left_x, top_left_y, top_left_x + depth + _config.thickness, top_left_y + _config.thickness], [top_left_x + depth, top_left_y + _config.thickness, top_left_x + depth + _config.thickness, top_left_y + width + _config.thickness], [top_left_x, top_left_y + width + _config.thickness, top_left_x + depth + _config.thickness, top_left_y + width + 2*_config.thickness], [top_left_x, top_left_y + _config.thickness, top_left_x + _config.thickness, top_left_y + width + _config.thickness]]
                 walls.pop(random.randint(0, 3))
-                if disp:
-                    for k in walls:
-                        cv2.rectangle(self.output, tuple(k[0:2]), tuple(k[2:]), (0, 0, 0), -1)
+                # if disp:
+                    # for k in walls:
+                        # cv2.rectangle(self.output, tuple(k[0:2]), tuple(k[2:]), (0, 0, 0), -1)
             elif _config.type == "puddle":
                 walls = list()
                 puddle_count = int(random.random() * _config.puddle_count)

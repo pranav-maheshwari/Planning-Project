@@ -29,6 +29,7 @@ def dijkstra_search(graph, start, goal, visualize=True):
         img = np.ones([graph.width+100, graph.height+100, 3]) * 255
         for i in graph.walls:
             img[i[0], i[1]] = (0, 0, 0)
+        #img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
         t1.start()
     frontier = PriorityQueue()
     frontier.put(start, 0)
@@ -86,7 +87,7 @@ def dijkstra_search_fill(graph, start):
     """This djikstra_search is used to calculate optimal cost
 	for all states starting from a start state"""
     frontier = PriorityQueue()
-    frontier.put(start, 0)
+    frontier.put(start, 0, 0, 0)
     came_from = {}
     cost_so_far = {}
     came_from[start] = None
@@ -100,7 +101,7 @@ def dijkstra_search_fill(graph, start):
             if next not in cost_so_far or new_cost < cost_so_far[next]:
                 cost_so_far[next] = new_cost
                 priority = new_cost
-                frontier.put(next, priority)
+                frontier.put(next, priority, 0, priority)
                 came_from[next] = current
 
     return came_from, cost_so_far
