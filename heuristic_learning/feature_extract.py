@@ -41,7 +41,7 @@ class Feature:
             self.feature = defaultdict(not_a_lambda_with_additional)
             if count > 0:
                 for i in range(count):
-                    self.distance_feature_lookup[i], self.gradient_feature_lookup[i] = self.BFS(self.initiate_open_list(features[i]), self.initiate_grid(features[i]))
+                    self.distance_feature_lookup[i], self.gradient_feature_lookup[i] = self.compute_feature(self.initiate_open_list(features[i]), self.initiate_grid(features[i]))
                 for i in self.distance_feature_lookup[0].iterkeys():
                     temp1 = [(1.0 * d[i]) / n for d in self.distance_feature_lookup]
                     temp2 = [d[i] for d in self.gradient_feature_lookup]
@@ -58,7 +58,7 @@ class Feature:
             self.feature = defaultdict(not_a_lambda)
             if count > 0:
                 for i in range(count):
-                    self.distance_feature_lookup[i] = self.BFS(self.initiate_open_list(features[i]), self.initiate_grid(features[i]))
+                    self.distance_feature_lookup[i] = self.compute_feature(self.initiate_open_list(features[i]), self.initiate_grid(features[i]))
                 for i in self.distance_feature_lookup[0].iterkeys():
                     self.feature[i] = [(1.0 * d[i]) / n for d in self.distance_feature_lookup]
                     self.feature[i] = tuple(self.feature[i] + Manhattan(i, goal)) #+ Angle(i, goal))
@@ -80,23 +80,29 @@ class Feature:
                 grid[j][i] = -1
         return grid
 
-    def BFS(self, open_list, grid):
+    def compute_feature(self, open_list, grid):
         expand = Queue.Queue()
         tree = dict()
         gradient = dict()
+        cost = dict()
         for i in open_list:
             expand.put(i)
-            tree[i] = 0
-            gradient[i] = [0, 0]
+            tree[i] = (-1, -1)
+            cost[i] = 0
+            gradient[i] = [0]
         while not expand.empty():
             i = expand.get()
+            if self.additional_features:
+                k = i
+                while tree[k] != (-1, -1):
+                    k = tree[k]
+                gradient[i] = Angle(i, k)
             for j in self.successors(i):
-                if j not in tree:
-                    tree[j] = tree[i] + grid[j[0]][j[1]]
-                    if self.additional_features:
-                        temp = [i[0] - j[0], i[1] - j[1]]
-                        n = np.linalg.norm(temp)
-                        gradient[j] = [(1.0 * k) / n for k in temp]
+                n = np.linalg.norm([i[0] - j[0], i[1] - j[1]])
+                c = cost[i] + n*grid[j[0]][j[1]]
+                if j not in cost or abs(c) < abs(cost[j]):
+                    tree[j] = i
+                    cost[j] = c
                     expand.put(j)
         if self.additional_features:
             return tree, gradient
