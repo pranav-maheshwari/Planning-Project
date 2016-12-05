@@ -42,12 +42,12 @@ base_heuristic = Manhattan
 
 
 visualize = True
-graph_connectivity = "four_connected"
-num_env_to_load = 100
+graph_connectivity = "eight_connected"
+num_env_to_load = 600
 swamp_cost = 100
 load_from_pickle = False
 save_to_pickle = True
-need_additional_features = True
+need_additional_features = False
 need_normalized_features = False
 preloaded = True
 dijkstra = True
@@ -56,7 +56,7 @@ dijkstra = True
 test_env_database = getEnvironmentDatabase(graph_connectivity, "soft", swamp_cost, num_env_to_load, preloaded, dijkstra,
                                            need_additional_features, need_normalized_features)
 
-NUM_TEST = 122880
+NUM_TEST = 409600
 
 
 # NUM_TEST = 12000
@@ -119,29 +119,18 @@ def sgdLearner(X, Y, batch_size, ita, training_epochs, num_test):
     print('Variance score: %.2f' % regr.score(test_X, test_Y))
 
 
-# Plot outputs
-# plt.scatter(test_X, test_Y,  color='black')
-# plt.plot(test_X, regr.predict(test_X), color='blue',
-#         linewidth=3)
-
-# plt.xticks(())
-# plt.yticks(())
-
-# plt.show()
-
-# Non linear regression learner
 
 def mlpRegressionLearner(X, Y, batch_size, ita, training_epochs, num_test):
     train_X = np.asarray(X[:-num_test])
     train_Y = np.asarray(Y[:-num_test])
     test_X = np.asarray(X[-num_test:])
     test_Y = np.asarray(Y[-num_test:])
-    train_X, test_X = normalize(train_X, test_X)
+    # train_X, test_X = normalize(train_X, test_X)
 
     # regr = neural_network.MLPRegressor(hidden_layer_sizes=(20), activation='relu', solver='adam', alpha='0.0001',
     #                                    learning_rate='adaptive', learning_rate_init=0.1, warm_start=True)
-    regr = neural_network.MLPRegressor(hidden_layer_sizes=(30, 30, 20), activation='relu', solver='adam', alpha=0.0001, batch_size='auto', learning_rate='constant',\
-                                        learning_rate_init=0.001, power_t=0.5, max_iter=200, shuffle=True, random_state=None, tol=0.0001, verbose=True,\
+    regr = neural_network.MLPRegressor(hidden_layer_sizes=(30, 30, 20), activation='relu', solver='adam', alpha=0.0001, batch_size=64, learning_rate='adaptive',\
+                                        learning_rate_init=0.01, power_t=0.5, max_iter=1000, shuffle=True, random_state=None, tol=0.0001, verbose=True,\
                                          warm_start=False, momentum=0.9, nesterovs_momentum=True, early_stopping=False, validation_fraction=0.1, beta_1=0.9, beta_2=0.999, epsilon=1e-08)
     print train_X.shape
     print train_Y.shape
@@ -245,7 +234,7 @@ def run_weights_in_astar(planning_problem, weights, bias, heuristic_fn, a_star =
                 
     return came_from, cost_so_far, num_expansions
 
-def run_weights_in_astar_mlp(planning_problem, regr, Manhattan, a_star = False):
+def run_weights_in_astar_mlp(planning_problem, regr, heuristic_fn, a_star = False):
     global img
     initialize_image(planning_problem)
     graph = planning_problem[0]
@@ -257,7 +246,7 @@ def run_weights_in_astar_mlp(planning_problem, regr, Manhattan, a_star = False):
     cost_so_far = {}
     closed = set()
     if a_star:
-        frontier.put(start, 0 + Manhattan(start, goal), Manhattan(start, goal), 0)
+        frontier.put(start, 0 + heuristic_fn(start, goal), heuristic_fn(start, goal), 0)
     else:
         frontier.put(start, 0 + regr.predict(feature_map[start]), regr.predict(feature_map[start]), 0)
     came_from[start] = None
@@ -277,53 +266,35 @@ def run_weights_in_astar_mlp(planning_problem, regr, Manhattan, a_star = False):
                 feature_vec = feature_map[next]
                 if not a_star:
                     priority = regr.predict(feature_vec)
-                    print priority
+                    # print priority
                     if next not in closed: 
                         frontier.put(next, priority, regr.predict(feature_vec), new_cost)
                 else:
-                    priority = new_cost + Manhattan(next, goal)
+                    priority = new_cost + heuristic_fn(next, goal)
                     frontier.put(next, priority, regr.predict(feature_vec), new_cost)
                 cost_so_far[next] = new_cost
                 frontier.put(next, priority, regr.predict(feature_vec), new_cost)
                 came_from[next] = current
-        time.sleep(0.01)
+        time.sleep(0.03)
     return came_from, cost_so_far, num_expansions
 
 
          
 X, Y = getData(test_env_database)
 
-# print X, Y
 
-# weights, bias = linearRegressionLearner(X, Y, batch_size, learning_rate, training_epochs, NUM_TEST)
-# sgdLearner(X, Y, batch_size, learning_rate, training_epochs, NUM_TEST)
-# sum_of_errors = 0
-# for i in range(len(X) - 122880, len(X)):
-#     sum_of_errors += math.pow(X[i][1] - Y[i], 2)
-
-# print "Mean squared error: ", sum_of_errors / 122880
-
-# _, _, num_expansions = run_weights_in_astar(test_env_database[67], weights, bias, Manhattan, True)
-
-# print "A-Star: ", num_expansions
-
-# print time.sleep(10)
-
-# _, _, num_expansions = run_weights_in_astar(test_env_database[67], weights, bias, Manhattan, False)
-
-# print "Chooo: ", num_expansions
 regr = mlpRegressionLearner(X, Y, batch_size, learning_rate, training_epochs, NUM_TEST)
 sum_of_errors = 0
-for i in range(len(X) - 122880, len(X)):
+for i in range(len(X) - NUM_TEST, len(X)):
     sum_of_errors += math.pow(X[i][1] - Y[i], 2)
 
-print "Mean squared error Manhattan: ", sum_of_errors / 122880
+print "Mean squared error Manhattan: ", sum_of_errors / NUM_TEST
 # _, _, num_expansions = run_weights_in_astar(test_env_database[67], weights, bias, Manhattan, True)
 
 # print "A-Star: ", num_expansions
 # time.sleep(10)
-for i in xrange(71, len(test_env_database)):
-    _, _, num_expansions = run_weights_in_astar_mlp(test_env_database[i], regr, Manhattan, True)
+for i in xrange(501, len(test_env_database)):
+    _, _, num_expansions = run_weights_in_astar_mlp(test_env_database[i], regr, Euclidean, True)
     print "Num Expansions (A-star)", num_expansions
-    _, _, num_expansions = run_weights_in_astar_mlp(test_env_database[i], regr, Manhattan, False)
+    _, _, num_expansions = run_weights_in_astar_mlp(test_env_database[i], regr, Euclidean, False)
     print "Num Exmapnsions (Learned Heuristic)", num_expansions
